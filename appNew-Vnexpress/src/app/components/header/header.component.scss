@@ -1,0 +1,29 @@
+.header {
+    background-color: #F3EBEB;
+    color: black;
+    height: 80px;
+}
+
+.vnexpress {
+    position: relative;
+    font-size: 12px;
+    padding: 0px;
+    font-weight: lighter;
+    top: -13px;
+}
+
+.title {
+    padding-top: 36px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.seach {
+    border-radius: 20px;
+    position: relative;
+    left: 35px;
+    height: 25px;
+    width: 200px;
+}

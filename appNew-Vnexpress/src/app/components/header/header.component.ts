@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { SidebarService } from 'src/app/services/sidebar.service';
 
 @Component({
-  selector: 'appNew-header',
+  selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor( private sidebarService: SidebarService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
-
+  toggleSideNav() {
+    this.sidebarService.toggle();
+  }
 }

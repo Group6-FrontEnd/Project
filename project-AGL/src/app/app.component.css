@@ -113,7 +113,7 @@ text-align: center;
 
 }
 
-/* modal outlay */
+/* -------------------modal outlay-------------------- */
 .modal{
   position: fixed;
   top: 0;
@@ -348,5 +348,5 @@ text-align: center;
 .button_ap:hover .button_ap-name,i{
   font-size: 18px;
 }
-/* End modal layout  */
+/* ---------------------------End modal layout---------------------  */
 

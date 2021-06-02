@@ -10,10 +10,11 @@ import { HeaderModule } from './components/header/header.module';
 import { SidebarModule } from './components/sidebar/sidebar.module';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { LoginSignModule } from './components/login-sign/login-sign.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +23,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     BodyModule,
     HeaderModule,
     SidebarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    LoginSignModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

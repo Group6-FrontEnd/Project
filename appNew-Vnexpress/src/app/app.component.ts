@@ -10,6 +10,9 @@ import { mainContentAnimation } from './animations';
   ]
 })
 export class AppComponent {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
   sidebarState!: string;
 
   constructor(

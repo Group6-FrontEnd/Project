@@ -1,1 +1,9 @@
-<p>sidebar works!</p>
+<div class="sidebar_menu" [@onSideNavChange]="sidebarState">
+    <mat-nav-list class="menu-list">
+        <a mat-list-item routerLinkActive="active-list-item" routerLink="login" title="Login" *ngFor="let menu of menus ">
+            <mat-icon class="icon" [@iconAnimation]="sidebarState">{{menu?.icon}}</mat-icon>
+            <span class="label" [@labelAnimation]="sidebarState">{{ menu?.name }} </span>
+            <mat-divider *ngIf="menu?.name==='Trang chủ'"></mat-divider>
+        </a>
+    </mat-nav-list>
+</div>

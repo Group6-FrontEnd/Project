@@ -5,6 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { BodyModule } from './components/body/body.module';
+import { HeaderModule } from './components/header/header.module';
+import { SidebarModule } from './components/sidebar/sidebar.module';
+
+import { MatSidenavModule } from '@angular/material/sidenav';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -12,7 +18,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    BodyModule,
+    HeaderModule,
+    SidebarModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

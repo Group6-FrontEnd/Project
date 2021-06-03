@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-login-sign',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-sign.component.css']
 })
 export class LoginSignComponent implements OnInit {
+  name: string = 'Ly Na';
+  password: string = '123';
 
-  constructor() { }
+  constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
+    this.accountService.currentAccount.subscribe(name => this.name = name);
   }
-
+  login() {
+    this.accountService.changeMessage(this.name);
+  }
 }

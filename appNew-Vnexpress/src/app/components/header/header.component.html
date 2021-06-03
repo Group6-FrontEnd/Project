@@ -12,10 +12,18 @@
         <button mat-icon-button>
       <mat-icon>search</mat-icon>
     </button>
-        <button mat-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-      <mat-icon>account_circle</mat-icon> Ly Na
-      <mat-icon>keyboard_arrow_down</mat-icon>
-    </button>
+        <span *ngIf="name ==='Đăng nhập'; then thenLogin else esleLogin "></span>
+        <ng-template #thenLogin>
+            <a *ngIf="name ==='Đăng nhập'" mat-button [routerLink]="['/login']" [routerLinkActive]="'active-link'">
+                <mat-icon>account_circle</mat-icon><span>&nbsp;{{name}}</span>
+            </a>
+        </ng-template>
+        <ng-template #esleLogin>
+            <button mat-button [matMenuTriggerFor]="menu">
+        <img src="https://i.pinimg.com/236x/88/17/e2/8817e2e498c18da5942df9fdba279e04.jpg" alt="">&nbsp; &nbsp;{{name}}
+      </button>
+            <mat-icon matBadge="2" matBadgeColor="warn">notifications_active</mat-icon>
+        </ng-template>
         <mat-menu #menu="matMenu">
             <button mat-menu-item>
         <mat-icon>edit</mat-icon>

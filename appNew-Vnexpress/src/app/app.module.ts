@@ -12,6 +12,7 @@ import { SidebarModule } from './components/sidebar/sidebar.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { LoginSignModule } from './components/login-sign/login-sign.module';
 
+import { RouterModule, Routes } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,12 +20,14 @@ import { LoginSignModule } from './components/login-sign/login-sign.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     BrowserAnimationsModule,
     BodyModule,
     HeaderModule,
     SidebarModule,
     MatSidenavModule,
     LoginSignModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

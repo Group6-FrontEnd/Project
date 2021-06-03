@@ -19,4 +19,6 @@ $appNew-Vnexpress-theme: mat.define-light-theme(( color: ( primary: $appNew-Vnex
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
+// <<<<<<< Updated upstream
 @include mat.all-component-themes($appNew-Vnexpress-theme);
+

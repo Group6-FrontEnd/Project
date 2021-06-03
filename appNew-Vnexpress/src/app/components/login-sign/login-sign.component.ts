@@ -4,7 +4,7 @@ import { AccountService } from 'src/app/services/account.service';
 @Component({
   selector: 'app-login-sign',
   templateUrl: './login-sign.component.html',
-  styleUrls: ['./login-sign.component.css']
+  styleUrls: ['./login-sign.component.scss']
 })
 export class LoginSignComponent implements OnInit {
   name: string = 'Ly Na';

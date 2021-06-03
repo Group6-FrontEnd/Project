@@ -1,105 +1,129 @@
 <!-- modal layout -->
 <div class="modal">
     <div class="modal-overlay"></div>
-    <div class="modal-body">
-        <!-- ----------------authen form-------------------
-        <div class="auth-form">
-            <div class="authen-form_header-up">
-                <div class="auth-form_heading-login"><a href="">Đăng nhập</a></div>
-                <div class="auth-form_switch-login"><a href="">Đăng ký</a></div>
-            </div>
-            <div class="authen-form_header-down">
-                <div class="auth-form_heading-down">Đăng nhập bằng email</div>
-                <div class="auth-form_switch-down">Đăng nhập với</div>
-            </div>
-            <div class="auth-form_form">
-                <div class="auth-form_form-login">
-                    <div class="auth-form_group-left">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        <input [(ngModel)]="name" type="text" class="auth-form_input" placeholder="nhập tên">
-                    </div>
-                    <div class="auth-form_group-left">
-                        <i class="fa fa-lock" aria-hidden="true"></i>
-                        <input [(ngModel)]="password" type="password" class="auth-form_input" placeholder="nhập mật khẩu">
-                    </div>
-                    <div class="auth-form_group-left">
-                        <a mat-button [routerLink]="['/body']" [routerLinkActive]="'active-link'">
-                            <button class="auth-form_button" (click)="login()">Đăng nhập</button>
-                        </a>
-                    </div>
-                    <a href="" class="auth-form_text">Quên tài khoản hoặc mật khẩu ?</a>
-                </div>
-                <div class="auth-form_form-control">
-                    <div class="auth-form_group-right1">
-                        <a href="" class="button_fb">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                            <span class="button_fb-name">Facebook</span>
-                        </a>
-                    </div>
-                    <div class="auth-form_group-right2">
-                        <a href="" class="button_gg">
-                            <i class="fa fa-google" aria-hidden="true"></i>
-                            <span class="button_gg-name">Google</span>
-                        </a>
-                    </div>
-                    <div class="auth-form_group-right3">
-                        <a href="" class="button_ap">
-                            <i class="fa fa-apple" aria-hidden="true"></i>
-                            <span class="button_ap-name">Apple</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+
+    <div class="form">
+        
+        <div class="tab-header">
+            <div class="auth-form_heading-login active">Đăng nhập</div>
+            <div class="auth-form_switch-login">Đăng ký</div>
         </div>
-        -------------------------End authen form--------------------------- -->
-        <!-- ----------------authen Sign up -------------------
+        <!-- ----------------authen form------------------->
+        <div class="tab-content">
+            <div class="auth-form active">
+                <div class="authen-form_header-down">
+                    <div class="auth-form_heading-down">Đăng nhập bằng email</div>
+                    <div class="auth-form_switch-down">Đăng nhập với</div>
+                </div>
+                <div class="auth-form_form">
+                    <div class="auth-form_form-login">
+                        <div class="auth-form_group-left">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <input [(ngModel)]="name" type="text" class="auth-form_input" placeholder="nhập tên">
+                        </div>
+                        <div class="auth-form_group-left">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                            <input [(ngModel)]="password" type="password" class="auth-form_input"
+                                placeholder="nhập mật khẩu">
+                        </div>
+                        <div class="auth-form_group-left">
+                            <a mat-button [routerLink]="['/body']" [routerLinkActive]="'active-link'">
+                                <button class="auth-form_button" (click)="login()">Đăng nhập</button>
+                            </a>
+                        </div>
+                        <a href="" class="auth-form_text">Quên tài khoản hoặc mật khẩu ?</a>
+                    </div>
+                    <div class="auth-form_form-control">
+                        <div class="auth-form_group-right1">
+                            <a href="" class="button_fb">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                                <span class="button_fb-name">Facebook</span>
+                            </a>
+                        </div>
+                        <div class="auth-form_group-right2">
+                            <a href="" class="button_gg">
+                                <i class="fa fa-google" aria-hidden="true"></i>
+                                <span class="button_gg-name">Google</span>
+                            </a>
+                        </div>
+                        <div class="auth-form_group-right3">
+                            <a href="" class="button_ap">
+                                <i class="fa fa-apple" aria-hidden="true"></i>
+                                <span class="button_ap-name">Apple</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-------------------------End authen form--------------------------- -->
+            <!-- ----------------authen Sign up ------------------->\
             <div class="auth-form">
-            <div class="authen-form_header-up">
-                <div class="auth-form_heading"><a href="">Đăng nhập</a></div>
-                <div class="auth-form_switch"><a href="">Đăng ký</a></div>
-            </div>
-            <div class="authen-form_header-down">
-                <div class="auth-form_heading-down">Tạo tài khoản BlogNew Để sử dụng đầy đủ tính năng đọc báo và tham gia cộng đồng</div>
-                <div class="auth-form_switch-down">Tạo tài khoản với</div>
-            </div>
-            <div class="auth-form_form">
-                <div class="auth-form_form-login">
-                    <div class="auth-form_group-left">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        <input type="text" class="auth-form_input" placeholder="Nhập email">
+                <div class="authen-form_header-down">
+                    <div class="auth-form_heading-down">Tạo tài khoản BlogNew Để sử dụng đầy đủ tính năng đọc báo và
+                        tham
+                        gia cộng đồng</div>
+                    <div class="auth-form_switch-down">Tạo tài khoản với</div>
+                </div>
+                <div class="auth-form_form">
+                    <div class="auth-form_form-login">
+                        <div class="auth-form_group-left">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <input type="text" class="auth-form_input" placeholder="Nhập email">
+                        </div>
+                        <div class="auth-form_group-left">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                            <a href="" class="eye"><i id="eye" class="fa fa-eye" aria-hidden="true"></i></a>
+                            <input type="password" class="auth-form_input" placeholder="Tạo mật khẩu">
+                        </div>
+                        <div class="auth-form_group-left">
+                            <button class="auth-form_button">Tạo tài khoản</button>
+                        </div>
                     </div>
-                    <div class="auth-form_group-left">
-                        <i class="fa fa-lock" aria-hidden="true"></i>
-                        <a href="" class="eye"><i id="eye" class="fa fa-eye" aria-hidden="true"></i></a>
-                        <input type="password" class="auth-form_input" placeholder="Tạo mật khẩu">
-                    </div>
-                    <div class="auth-form_group-left">
-                        <button class="auth-form_button">Tạo tài khoản</button>
+                    <div class="auth-form_form-control">
+                        <div class="auth-form_group-right1">
+                            <a href="" class="button_fb">
+                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                                <span class="button_fb-name">Facebook</span>
+                            </a>
+                        </div>
+                        <div class="auth-form_group-right2">
+                            <a href="" class="button_gg">
+                                <i class="fa fa-google" aria-hidden="true"></i>
+                                <span class="button_gg-name">Google</span>
+                            </a>
+                        </div>
+                        <div class="auth-form_group-right3">
+                            <a href="" class="button_ap">
+                                <i class="fa fa-apple" aria-hidden="true"></i>
+                                <span class="button_ap-name">Apple</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="auth-form_form-control">
-                    <div class="auth-form_group-right1">
-                        <a href="" class="button_fb">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                            <span class="button_fb-name">Facebook</span>
-                        </a>
-                    </div>
-                    <div class="auth-form_group-right2">
-                        <a href="" class="button_gg">
-                            <i class="fa fa-google" aria-hidden="true"></i>
-                            <span class="button_gg-name">Google</span>
-                        </a>
-                    </div>
-                    <div class="auth-form_group-right3">
-                        <a href="" class="button_ap">
-                            <i class="fa fa-apple" aria-hidden="true"></i>
-                            <span class="button_ap-name">Apple</span>
-                        </a>
-                    </div>
-                </div>
             </div>
-        </div> 
-        -----------------------End authen form--------------------------- -->
+            <!---------------------End authen form--------------------------- -->
+        </div>
     </div>
+
 </div>
 <!-- End modal layout -->
+<script>
+    let tabPanes = document.getElementsByClassName("tab-header")
+    [0].getElementsByClassName("div");
+
+    for (let i = 0; i < tabPanes.length; i++) {
+        tabPanes[i].addEventListener("click", function () {
+            document.getElementsByClassName("tab-header")
+            [0].getElementsByClassName("active")
+            [0].classList.remove("active");
+            tabPanes[i].classList.add("active");
+
+            document.getElementsByClassName("tab-content")
+            [0].getElementsByClassName("active")
+            [0].classList.remove("active");
+            document.getElementsByClassName("tab-content")
+            [0].getElementsByClassName("auth-form")
+            [i].classList.add("active");
+        });
+    }
+</script>

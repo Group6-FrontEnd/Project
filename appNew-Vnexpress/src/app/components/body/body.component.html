@@ -1,32 +1,38 @@
-<div class="main_container" style=" height:100vh;width: 400px;">
-    <div style="text-align:center;padding: 20px">
-        <mat-card class="example-card">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-                <p>
-                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
-                </p>
-            </mat-card-content>
-        </mat-card>
+<div class="tool-bar">
+    <div class="title">
+        <p>Tin đã lưu</p>
     </div>
-    <div style="text-align:center;padding: 20px">
-        <mat-card class="example-card">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-                <p>
-                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
-                </p>
-            </mat-card-content>
-        </mat-card>
-    </div>
-    <div style="text-align:center;padding: 20px">
-        <mat-card class="example-card">
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-                <p>
-                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
-                </p>
-            </mat-card-content>
-        </mat-card>
+    <div class="tool">
+        <a href='/sign'><mat-icon>autorenew</mat-icon></a>
+        <a href="/header"><mat-icon>sort</mat-icon></a>
     </div>
 </div>
+
+<div class='body'>
+    <div *ngFor='let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]' class="card">
+        <div class="buttons">
+            <div class="buttons-border">
+                <a href="#" class="button"><mat-icon>turned_in_not</mat-icon></a>
+                <a href="#" class="button"><mat-icon>done</mat-icon></a>
+                <a href="#" class="button"><mat-icon>clear</mat-icon></a>
+            </div>
+        </div>
+
+        <a href=""><img class="card-img-top" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Card image cap"></a>
+        
+        <div class="card-body">
+            <p class="card-title">Card title</p>
+            <p class="card-subtitle">8:00 22/05/2021</p>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content. Some quick example text to build on the card title and make up the bulk of the card's
+                content. Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+        </div>
+    </div>
+
+    <div style="height: 150px; width: 100%;"></div>
+</div>
+
+
+
+<!-- https://material.angular.io/assets/img/examples/shiba2.jpg -->

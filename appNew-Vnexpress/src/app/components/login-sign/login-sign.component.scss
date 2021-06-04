@@ -28,21 +28,6 @@
   display: block;
   clear: both;
 }
-.btn {
-  color: var(--white-color);
-  background-color: var(--black-color);
-  text-decoration: none;
-  padding: 11px 16px;
-  display: inline-block;
-  margin-top: 15px;
-  border:none;
-  text-align: center;
-}
-.btn:hover {
-  cursor: pointer;
-  color: var(--black-color);
-  background-color: var(--white1-color);
-}
 .col{
   float: left;
   padding-left: 8px;
@@ -72,6 +57,24 @@
 .text-content {
   text-align: center;
 }
+// 
+.btn-light1{
+  color: rgb(255, 0, 0);
+}
+.btn-light2{
+  color: #000 !important;
+}
+button:focus {
+  box-shadow:none;
+}
+.btn2{
+  color: rgb(255, 0, 0);
+  display: inline-block;
+  line-height: 1.5;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+// 
 /* làm từ ngoài vào trong làm từ trên xuống dưới */
 /* vi trí
   kích thước
@@ -135,13 +138,11 @@ text-align: center;
   z-index: 1;
   width: 800px;
   height: 450px;
-  background-image: linear-gradient(#FFFFFF,#fc9c9c);
+  background-image: linear-gradient(var(--linear-gradient),var(--linear-gradient1));
   border-radius:10px;
 }
 
 /* authen form */
-.auth-form{  
-}
 .authen-form_header-down{
   display: flex;
   width: 100%;
@@ -160,34 +161,26 @@ text-align: center;
 }
 
 /* login */
-.tab-header .auth-form_heading-login{
+.tab-header .dn{
   width: 60%;
   text-align: center;
   font-size: 25px;
   font-weight: 700;
   padding: 15px 0 ;
   border-bottom: 1px solid var(--border-color);
-  cursor: pointer;
+  
 }
-.tab-header .auth-form_switch-login{
+.tab-header .dk{
   width: 40%;
   text-align: center;
   font-size: 25px;
   font-weight: 600;
   padding: 15px 0 ;
   border-bottom: 1px solid var(--border-color);
-  cursor: pointer;
 }
-.tab-header > div.active {
-  color: var(--prinary-color);
-}
-.tab-header:hover .auth-form_heading-login,
-.tab-header:hover .auth-form_switch-login {
+.tab-header:hover .dn,
+.tab-header:hover .dk {
   font-size: 24px;
-}
-.auth-form_heading-login ,
-.auth-form_switch-login {
-  color: var(--black-color);
 }
 /* end login */
 
@@ -244,14 +237,14 @@ text-align: center;
   padding : 11px;
 }
 .auth-form .auth-form_group-left:hover i{
-  font-size : 15px;
+  font-size : 16px;
 }
 .auth-form_group-left:hover .auth-form_button{
   font-size: 18px;
 }
 .auth-form .auth-form_group-left i{
   position: absolute;
-  padding: 10px 10px 14px 17px;
+  padding: 9px 10px 14px 17px;
 }
 .auth-form .auth-form_group-left .eye{
   margin-right: 118px;
@@ -279,7 +272,7 @@ text-align: center;
   padding : 7px;
   border: 1px solid var(--border-color);
   border-radius: 20px;
-  background-image: linear-gradient(to right,#fddbdb,#f34747);
+  background-image: linear-gradient(to right,var(--linear-gradient),var(--prinary-color));
 
 }
 .auth-form .auth-form_text{
@@ -345,13 +338,6 @@ text-align: center;
 }
 .button_ap:hover .button_ap-name,i{
   font-size: 18px;
-}
-
-.form .tab-content > div.active {
-  display: block;
-}
-.form .tab-content > div {
-  display: none;
 }
 /* ---------------------------End modal layout---------------------  */
 

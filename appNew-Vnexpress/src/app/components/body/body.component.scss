@@ -1,6 +1,6 @@
 .tool-bar {
     width: 100%;
-    padding: 20px 20px 0px 40px;
+    padding: 20px 40px 0px 40px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -19,6 +19,16 @@
             padding: 5px;
             margin: 10px;
         }
+
+        .tool-panel {
+            border-radius: 5px;
+            background-color: rgb(253, 208, 215);
+            padding: 15px;
+
+            div {
+                margin: 5px;
+            }
+        }
     }
 }
 
@@ -34,6 +44,7 @@
 
     .card {
         width: 18rem;
+        // width: 100%; //
         margin: 20px;
         position: relative;
         display: flex;
@@ -52,6 +63,8 @@
     
             .buttons-border {
                 width: 40%;
+                // width: 20%; //
+                
                 border: 1px solid rgba(0,0,0,.125);
                 border-radius: 8px;
                 margin: 5px;
@@ -69,12 +82,21 @@
             }
         }
     
-        .card-img-top {
-            width: 100%;
+        a {
+            // width: 15%; //
+            // height: 120px; //
+            // float: left; //
+
+            img.card-img-top {
+                width: 100%;
+            }
         }
     
         .card-body {
-    
+            // width: 85%; // 
+            // float: right; //
+            // padding: 0px 10px 0px 10px; //
+
             .card-title {
                 font-size: 16px;
                 font-weight: 500;
@@ -84,5 +106,16 @@
     }
 }
 
+.dropdown-toggle::after {
+    display: none;
+}
 
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
 
+.btn:focus-visible {
+    outline: none;
+    box-shadow: none;
+}

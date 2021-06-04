@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'appNew-body',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./body.component.scss']
 })
 export class BodyComponent implements OnInit {
+
+  view:string = 'Card';
+  sort:string = 'Date';
 
   constructor() { }
 

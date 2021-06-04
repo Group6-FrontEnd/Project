@@ -15,8 +15,8 @@ import { Error404Module } from './components/error404/error404.module';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { LoginSignModule } from './components/login-sign/login-sign.module';
-import { RouterModule } from '@angular/router';
-
+import { RouterModule, Routes } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,8 +34,8 @@ import { RouterModule } from '@angular/router';
     EditInforModule,
     ChangePassModule,
     FeedbackModule,
-    Error404Module
-    
+    Error404Module,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

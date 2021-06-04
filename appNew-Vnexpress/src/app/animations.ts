@@ -2,7 +2,7 @@ import { trigger, transition, style, animate, AnimationTriggerMetadata, state, g
 
 const defaultDuration = '100ms';
 const defaultMinWidth = '50px';
-const defaultMaxWidth = '200px';
+const defaultMaxWidth = '204px';
 const defaultMinFontSize = '20px';
 const defaultMaxFontSize = '24px';
 

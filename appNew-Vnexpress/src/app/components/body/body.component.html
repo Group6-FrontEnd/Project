@@ -3,30 +3,95 @@
         <p>Tin đã lưu</p>
     </div>
     <div class="tool">
-        <a href='/sign'><mat-icon>autorenew</mat-icon></a>
-        <a href="/header"><mat-icon>sort</mat-icon></a>
+        <button class="btn">
+            <mat-icon>autorenew</mat-icon>
+        </button>
+        <div ngbDropdown class="d-inline-block">
+            <button class="btn" id="dropdown" ngbDropdownToggle>
+                <mat-icon>sort</mat-icon>
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdown" class='tool-panel'>
+                <div style="font-weight: 500;">View:</div>
+                <div style="font-weight: 300;">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="viewCheck" id="card"
+                            [checked]='view === "Card"' value="Card" [(ngModel)]='view'>
+                        <label class="form-check-label" for="card">
+                            Card
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="viewCheck" id="magazine"
+                            [checked]='view === "Magazine"' value="Magazine" [(ngModel)]='view'>
+                        <label class="form-check-label" for="magazine">
+                            Magazine
+                        </label>
+                    </div>
+                </div>
+                <div style="font-weight: 500;">Sort:</div>
+                <div style="font-weight: 300;">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sortCheck" id="date" value="Date"
+                            [checked]='sort === "Date"' [(ngModel)]='sort'>
+                        <label class="form-check-label" for="date">
+                            Date
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="sortCheck" id="title" value="Title"
+                            [checked]='sort === "Title"' [(ngModel)]='sort'>
+                        <label class="form-check-label" for="title">
+                            Title
+                        </label>
+                    </div>
+                </div>
+                {{view}}
+                <br />
+                {{sort}}
+            </div>
+        </div>
     </div>
 </div>
 
 <div class='body'>
-    <div *ngFor='let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]' class="card">
+    <div *ngFor='let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]' [style.width]="view === 'Card' ? '18rem' : '100%'" class="card">
         <div class="buttons">
-            <div class="buttons-border">
-                <a href="#" class="button"><mat-icon>turned_in_not</mat-icon></a>
-                <a href="#" class="button"><mat-icon>done</mat-icon></a>
-                <a href="#" class="button"><mat-icon>clear</mat-icon></a>
+            <div [style.width]="view === 'Card' ? '40%' : '20%'" class="buttons-border">
+                <a href="#" class="button">
+                    <mat-icon>turned_in_not</mat-icon>
+                </a>
+                <a href="#" class="button">
+                    <mat-icon>done</mat-icon>
+                </a>
+                <a href="#" class="button">
+                    <mat-icon>clear</mat-icon>
+                </a>
             </div>
         </div>
 
-        <a href=""><img class="card-img-top" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Card image cap"></a>
-        
-        <div class="card-body">
-            <p class="card-title">Card title</p>
-            <p class="card-subtitle">8:00 22/05/2021</p>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content. Some quick example text to build on the card title and make up the bulk of the card's
-                content. Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
+        <div class="content">
+            <a href="" 
+            [style.width]="view === 'Card' ? '' : '15%'"
+            [style.height]="view === 'Card' ? '' : '120px'"
+            [style.float]="view === 'Card' ? '' : 'left'"
+            >
+                <img [style.height]="view === 'Card' ? '' : '120px'" class="card-img-top" src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                    alt="Card image cap">
+                </a>
+
+            <div
+            [style.width]="view === 'Card' ? '' : '85%'"
+            [style.padding]="view === 'Card' ? '' : '0px 10px 0px 10px'"
+            [style.float]="view === 'Card' ? '' : 'right'"
+            class="card-body">
+                <p class="card-title">Card title</p>
+                <p class="card-subtitle">8:00 22/05/2021</p>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content. Some quick example text to build on the card title and make up the bulk of the card's
+                    content. Some quick example text to build on the card title and make up the bulk of the card's
+                    content.</p>
+            </div>
         </div>
     </div>
 

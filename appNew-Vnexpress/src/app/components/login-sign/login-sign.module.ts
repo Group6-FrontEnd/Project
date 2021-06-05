@@ -8,6 +8,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { FormsModule } from '@angular/forms';
 import { BodyComponent } from '../body/body.component';
 import { Routes, RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: 'body', component: BodyComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
     MatDividerModule,
     MatListModule,
     MatExpansionModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     LoginSignComponent,

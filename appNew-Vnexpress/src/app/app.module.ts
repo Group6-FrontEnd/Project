@@ -17,6 +17,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { LoginSignModule } from './components/login-sign/login-sign.module';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +38,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FeedbackModule,
     Error404Module,
     NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

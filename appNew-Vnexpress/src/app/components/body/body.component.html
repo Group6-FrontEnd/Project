@@ -1,9 +1,9 @@
 <div class="tool-bar">
     <div class="title">
-        <p>Tin đã lưu</p>
+        <p>{{responseObject.feed.title}}</p>
     </div>
     <div class="tool">
-        <button class="btn">
+        <button class="btn" (click)='getJson()'>
             <mat-icon>autorenew</mat-icon>
         </button>
         <div ngbDropdown class="d-inline-block">
@@ -53,8 +53,8 @@
     </div>
 </div>
 
-<div class='body'>
-    <div *ngFor='let i of [1, 2, 3, 4, 5, 6, 7, 8, 9]' [style.width]="view === 'Card' ? '18rem' : '100%'" class="card">
+<div class='body' *ngIf='responseObject.status === "ok"'>
+    <div *ngFor='let item of responseObject.items' [style.width]="view === 'Card' ? '18rem' : '100%'" class="card">
         <div class="buttons">
             <div [style.width]="view === 'Card' ? '40%' : '20%'" class="buttons-border">
                 <a href="#" class="button">
@@ -70,13 +70,13 @@
         </div>
 
         <div class="content">
-            <a href="" 
+            <a href="{{item.link}}" 
             [style.width]="view === 'Card' ? '' : '15%'"
             [style.height]="view === 'Card' ? '' : '120px'"
             [style.float]="view === 'Card' ? '' : 'left'"
             >
-                <img [style.height]="view === 'Card' ? '' : '120px'" class="card-img-top" src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                    alt="Card image cap">
+                <img [style.height]="view === 'Card' ? '' : '120px'" class="card-img-top" src="{{item.thumbnail}}"
+                    alt="Card image">
                 </a>
 
             <div
@@ -84,13 +84,9 @@
             [style.padding]="view === 'Card' ? '' : '0px 10px 0px 10px'"
             [style.float]="view === 'Card' ? '' : 'right'"
             class="card-body">
-                <p class="card-title">Card title</p>
-                <p class="card-subtitle">8:00 22/05/2021</p>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's
-                    content. Some quick example text to build on the card title and make up the bulk of the card's
-                    content. Some quick example text to build on the card title and make up the bulk of the card's
-                    content.</p>
+                <p class="card-title">{{item.title}}</p>
+                <p class="card-subtitle">{{item.pubDate}}</p>
+                <p class="card-text">{{item.content}}</p>
             </div>
         </div>
     </div>

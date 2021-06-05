@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BodyModule } from './components/body/body.module';
@@ -15,8 +14,9 @@ import { Error404Module } from './components/error404/error404.module';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { LoginSignModule } from './components/login-sign/login-sign.module';
-import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { AppComponent } from './app.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +24,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule,
     BrowserAnimationsModule,
     BodyModule,
     HeaderModule,

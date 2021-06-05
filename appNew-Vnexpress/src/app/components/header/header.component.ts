@@ -9,7 +9,7 @@ import { SidebarService } from 'src/app/services/sidebar.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  name: string = 'Đăng nhập';
+  name: string = 'Ly Na';
   password: string = '123';
   constructor(private sidebarService: SidebarService,
     private accountService: AccountService) {

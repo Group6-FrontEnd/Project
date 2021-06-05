@@ -3,14 +3,14 @@
     <div class="modal-overlay"></div>
 
     <div class="form">
-        
+
         <div class="tab-header">
-            <button class="btn dn" [class.btn-light1]="flag" type="button" (click)="apply('login')" >Đăng nhập</button>
-            <button class="btn2 dk" [class.btn-light2]="flag" type="button" (click)="apply('reg')" >Đăng ký</button>
+            <button class="btn dn" [class.btn-light1]="flag" type="button" (click)="apply('login')">Đăng nhập</button>
+            <button class="btn2 dk" [class.btn-light2]="flag" type="button" (click)="apply('reg')">Đăng ký</button>
         </div>
         <!-- ----------------authen form------------------->
         <div class="tab-content">
-            <div class="auth-form" *ngIf="flag" [formGroup]="loginForm">                          
+            <div class="auth-form" *ngIf="flag" [formGroup]="loginForm">
                 <div class="authen-form_header-down">
                     <div class="auth-form_heading-down">Đăng nhập bằng email</div>
                     <div class="auth-form_switch-down">Đăng nhập với</div>
@@ -24,8 +24,7 @@
                         </div>
                         <div class="auth-form_group-left">
                             <i class="fa fa-lock" aria-hidden="true"></i>
-                            <input [(ngModel)]="password" type="password" class="auth-form_input"
-                                placeholder="nhập mật khẩu" formControlName="password">
+                            <input [(ngModel)]="password" type="password" class="auth-form_input" placeholder="nhập mật khẩu" formControlName="password">
                             <span class="text-danger" *ngIf="loginForm.controls.password.errors && loginForm.controls.password.touched"><br>Mật khẩu ít nhất 6 ký tự là bắt buộc</span>
                         </div>
                         <div class="auth-form_group-left">
@@ -55,15 +54,13 @@
                             </a>
                         </div>
                     </div>
-                </div> 
+                </div>
             </div>
             <!-------------------------End authen form--------------------------- -->
             <!-- ----------------authen Sign up ------------------->
-            <div class="auth-form" *ngIf="!flag" [formGroup]="regForm">                         
+            <div class="auth-form" *ngIf="!flag" [formGroup]="regForm">
                 <div class="authen-form_header-down">
-                    <div class="auth-form_heading-down">Tạo tài khoản BlogNew Để sử dụng đầy đủ tính năng đọc báo và
-                        tham
-                        gia cộng đồng</div>
+                    <div class="auth-form_heading-down">Tạo tài khoản BlogNew Để sử dụng đầy đủ tính năng đọc báo và tham gia cộng đồng</div>
                     <div class="auth-form_switch-down">Tạo tài khoản với</div>
                 </div>
                 <div class="auth-form_form">
@@ -78,7 +75,7 @@
                             <input [(ngModel)]="email" type="text" class="auth-form_input" placeholder="Nhập email/sdt" formControlName="email">
                             <span class="text-danger" *ngIf="regForm.controls.email.errors && regForm.controls.email.touched"><br>Email / số điện thoại di động không hợp lệ</span>
                         </div>
-                        <div class="auth-form_group-left">  
+                        <div class="auth-form_group-left">
                             <i class="fa fa-lock" aria-hidden="true"></i>
                             <a href="" class="eye"><i class="fa fa-eye-slash" aria-hidden="true" style="padding-left: 10px;"></i></a>
                             <input [(ngModel)]="password" type="password" class="auth-form_input" placeholder="Tạo mật khẩu" formControlName="password">

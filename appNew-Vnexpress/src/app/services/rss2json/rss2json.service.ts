@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-import { ResponseObject } from './responseObject';
+import { ResponseObject } from '../../models/responseObject';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +22,6 @@ export class Rss2jsonService {
         catchError(this.handleError<ResponseObject>('getHeroes', this.nul))
       );
   }
-
   /**
  * Handle Http operation that failed.
  * Let the app continue.

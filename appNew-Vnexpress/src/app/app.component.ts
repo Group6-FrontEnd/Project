@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SidebarService } from 'src/app/services/sidebar.service';
+import { SidebarService } from 'src/app/services/sidebar/sidebar.service';
 import { mainContentAnimation } from './animations';
 @Component({
   selector: 'appNew-root',

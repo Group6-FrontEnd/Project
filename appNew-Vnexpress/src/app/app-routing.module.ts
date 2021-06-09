@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BodyComponent } from './components/body/body.component';
+import { HomeDetailComponent } from './components/body/home-detail/home-detail.component';
+import { HomePageComponent } from './components/body/home-page/home-page.component';
+
 
 const routes: Routes = [
-  { path: '', redirectTo: '/body', pathMatch: 'full' },
-  { path: 'body', component: BodyComponent },
+  { path: '', redirectTo: '/home-page', pathMatch: 'full' },
+  { path: 'home-detail/:id', component: HomeDetailComponent },
+  { path: 'home-page', component: HomePageComponent }
 ];
 
 @NgModule({

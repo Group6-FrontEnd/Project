@@ -14,15 +14,13 @@
                 <div style="font-weight: 500;">View:</div>
                 <div style="font-weight: 300;">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="viewCheck" id="card"
-                            [checked]='view === "Card"' value="Card" [(ngModel)]='view'>
+                        <input class="form-check-input" type="radio" name="viewCheck" id="card" [checked]='view === "Card"' value="Card" [(ngModel)]='view'>
                         <label class="form-check-label" for="card">
                             Card
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="viewCheck" id="magazine"
-                            [checked]='view === "Magazine"' value="Magazine" [(ngModel)]='view'>
+                        <input class="form-check-input" type="radio" name="viewCheck" id="magazine" [checked]='view === "Magazine"' value="Magazine" [(ngModel)]='view'>
                         <label class="form-check-label" for="magazine">
                             Magazine
                         </label>
@@ -31,23 +29,20 @@
                 <div style="font-weight: 500;">Sort:</div>
                 <div style="font-weight: 300;">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sortCheck" id="date" value="Date"
-                            [checked]='sort === "Date"' [(ngModel)]='sort'>
+                        <input class="form-check-input" type="radio" name="sortCheck" id="date" value="Date" [checked]='sort === "Date"' [(ngModel)]='sort'>
                         <label class="form-check-label" for="date">
                             Date
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sortCheck" id="title" value="Title"
-                            [checked]='sort === "Title"' [(ngModel)]='sort'>
+                        <input class="form-check-input" type="radio" name="sortCheck" id="title" value="Title" [checked]='sort === "Title"' [(ngModel)]='sort'>
                         <label class="form-check-label" for="title">
                             Title
                         </label>
                     </div>
                 </div>
                 {{view}}
-                <br />
-                {{sort}}
+                <br /> {{sort}}
             </div>
         </div>
     </div>
@@ -70,20 +65,11 @@
         </div>
 
         <div class="content">
-            <a href="{{item.link}}" 
-            [style.width]="view === 'Card' ? '' : '15%'"
-            [style.height]="view === 'Card' ? '' : '120px'"
-            [style.float]="view === 'Card' ? '' : 'left'"
-            >
-                <img [style.height]="view === 'Card' ? '' : '120px'" class="card-img-top" src="{{item.thumbnail}}"
-                    alt="Card image">
-                </a>
+            <a target="_blank" href="{{item.link}}" [style.width]="view === 'Card' ? '' : '15%'" [style.height]="view === 'Card' ? '' : '120px'" [style.float]="view === 'Card' ? '' : 'left'">
+                <img [style.height]="view === 'Card' ? '' : '120px'" class="card-img-top" src="{{item.thumbnail}}" alt="Card image">
+            </a>
 
-            <div
-            [style.width]="view === 'Card' ? '' : '85%'"
-            [style.padding]="view === 'Card' ? '' : '0px 10px 0px 10px'"
-            [style.float]="view === 'Card' ? '' : 'right'"
-            class="card-body">
+            <div [style.width]="view === 'Card' ? '' : '85%'" [style.padding]="view === 'Card' ? '' : '0px 10px 0px 10px'" [style.float]="view === 'Card' ? '' : 'right'" class="card-body">
                 <p class="card-title">{{item.title}}</p>
                 <p class="card-subtitle">{{item.pubDate}}</p>
                 <p class="card-text">{{item.content}}</p>

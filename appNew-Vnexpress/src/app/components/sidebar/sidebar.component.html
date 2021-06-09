@@ -2,22 +2,24 @@
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
         <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle class="list">
             <mat-nav-list class="menu-sublist">
-                <a mat-list-item class="list">
+                <a mat-list-item (click)="linkUrl(node?.url)" class="list">
                     <span class="sublabel" [@labelAnimation]="sidebarState ">{{ node?.name }} </span>
                 </a>
             </mat-nav-list>
         </mat-tree-node>
         <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild ">
             <mat-nav-list class="menu-list ">
-                <a mat-list-item>
-                    <mat-icon class="icon" [@iconAnimation]="sidebarState ">{{node?.icon}}</mat-icon>
-                    <span class="label" [@labelAnimation]="sidebarState ">{{ node?.name }} </span>
+                <button mat-list-item class="button">
+                    <a routerLink="{{node.link}}" routerLinkActive="active">
+                        <mat-icon class="icon" [@iconAnimation]="sidebarState ">{{node?.icon}}</mat-icon>
+                        <span class="label" [@labelAnimation]="sidebarState ">{{ node?.name }} </span>
+                    </a>
                     <button mat-icon-button matTreeNodeToggle *ngIf="node.name==='Trang chủ'" class="button">
                         <mat-icon [@labelAnimation]="sidebarState" >
                             {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
                         </mat-icon>
                     </button>
-                </a>
+                </button>
             </mat-nav-list>
             <div [class.example-tree-invisible]="!treeControl.isExpanded(node) " role="group ">
                 <ng-container matTreeNodeOutlet></ng-container>

@@ -1,18 +1,18 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Rss2jsonService } from '../../services/rss2json/rss2json.service';
-import { ResponseObject } from '../../services/rss2json/responseObject';
-import { isTemplateExpression } from 'typescript';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ResponseObject } from 'src/app/models/responseObject';
+import { Rss2jsonService } from 'src/app/services/rss2json/rss2json.service';
 
 @Component({
-  selector: 'appNew-body',
-  templateUrl: './body.component.html',
-  styleUrls: ['./body.component.scss']
+  selector: 'app-home-detail',
+  templateUrl: './home-detail.component.html',
+  styleUrls: ['./home-detail.component.scss']
 })
-export class BodyComponent implements OnInit {
-
+export class HomeDetailComponent implements OnInit {
   view = 'Card';
   sort = 'Date';
-  rss_url = 'https://vnexpress.net/rss/thoi-su.rss';
+
+  link_rss = '';
 
   responseObject: ResponseObject = {
     status: '',
@@ -43,7 +43,7 @@ export class BodyComponent implements OnInit {
   };
 
   getJson(): void {
-    this.rss2jsonService.getJson(this.rss_url).subscribe(content => {
+    this.rss2jsonService.getJson(this.link_rss).subscribe(content => {
       this.responseObject = content;
       this.responseObject.items.forEach(item => {
         item.content = this.getContent(item.content);
@@ -56,9 +56,18 @@ export class BodyComponent implements OnInit {
     return origin.substring(origin.lastIndexOf('>') + 1);
   }
 
-  constructor(private rss2jsonService: Rss2jsonService) { }
+  constructor(private rss2jsonService: Rss2jsonService,
+    private router: Router
+  ) {
+    console.log('na:', this.link_rss);
+    const navigation = this.router.getCurrentNavigation();
+    this.link_rss = navigation?.extras.state as any;
+    console.log('rssUrl:', this.link_rss);
+  }
 
   ngOnInit(): void {
+    this.getJson();
+
   }
 
 }

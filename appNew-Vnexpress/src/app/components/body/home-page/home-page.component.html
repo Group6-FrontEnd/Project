@@ -1,0 +1,67 @@
+<div class="wrapper">
+    <div>
+        <div class="tool-bar">
+            <div class="title">
+                <p>{{responseObjectLatestNews.feed.title}}</p>
+            </div>
+        </div>
+        <div class="content">
+            <owl-carousel-o [options]="customOptions" *ngIf='responseObjectLatestNews.status === "ok"'>
+                <ng-template carouselSlide *ngFor='let item of responseObjectLatestNews.items'>
+                    <div class="card">
+                        <div class="content ">
+                            <a href="{{item.link}}" target="_blank">
+                                <img class="card-img-top " src="{{item.thumbnail}} " alt="Card image">
+                            </a>
+                            <div class="card-body ">
+                                <p class="card-title ">{{item.title}}</p>
+                                <p class="card-subtitle ">{{item.pubDate}}</p>
+                                <p class="card-text ">{{item.content}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+
+            </owl-carousel-o>
+        </div>
+        <div style="text-align: center;">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </div>
+
+    </div>
+
+    <div class="wrapper">
+        <div>
+            <div class="tool-bar">
+                <div class="title">
+                    <p>{{responseObject.feed.title}}</p>
+                </div>
+            </div>
+            <div class="content">
+                <owl-carousel-o [options]="customOptions" *ngIf='responseObject.status === "ok"'>
+                    <ng-template carouselSlide *ngFor='let item of responseObject.items'>
+                        <div class="card">
+                            <div class="content ">
+                                <a href="{{item.link}}" target="_blank">
+                                    <img class="card-img-top " src="{{item.thumbnail}} " alt="Card image">
+                                </a>
+                                <div class="card-body ">
+                                    <p class="card-title ">{{item.title}}</p>
+                                    <p class="card-subtitle ">{{item.pubDate}}</p>
+                                    <p class="card-text ">{{item.content}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </owl-carousel-o>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </div>
+    </div>
+</div>

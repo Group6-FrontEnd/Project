@@ -10,7 +10,9 @@ import { EditInforModule } from './components/edit-infor/edit-infor.module';
 import { ChangePassModule } from './components/change-pass/change-pass.module';
 import { FeedbackModule } from './components/feedback/feedback.module';
 import { Error404Module } from './components/error404/error404.module';
+
 import { BodyModule } from './components/body/body.module';
+import { SettingsModule } from './components/settings/settings.module';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { LoginSignModule } from './components/login-sign/login-sign.module';
@@ -40,7 +42,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     NgbModule,
     HttpClientModule,
     BodyModule,
-
+    SettingsModule,
+    CarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

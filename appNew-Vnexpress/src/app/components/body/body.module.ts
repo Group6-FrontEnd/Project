@@ -30,7 +30,7 @@ import { BodyRoutingModule } from './body-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule,
-    CarouselModule
+    CarouselModule,
   ],
   exports: [
     HomePageComponent

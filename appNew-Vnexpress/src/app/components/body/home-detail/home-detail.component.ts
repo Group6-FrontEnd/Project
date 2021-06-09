@@ -67,7 +67,5 @@ export class HomeDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getJson();
-
   }
-
 }

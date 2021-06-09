@@ -6,6 +6,7 @@ import { EditInforComponent } from '../edit-infor/edit-infor.component';
 import { Error404Component } from '../error404/error404.component';
 import { FeedbackComponent } from '../feedback/feedback.component';
 import { LoginSignComponent } from '../login-sign/login-sign.component';
+import { SettingsComponent } from '../settings/settings.component';
 
 const routes: Routes = [
   { path: 'home-page', component: HomePageComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'editInfor', component: EditInforComponent },
   { path: 'changePass', component: ChangePassComponent },
   { path: 'feedback', component: FeedbackComponent },
+  { path: 'settings', component: SettingsComponent},
   { path: '**', component: Error404Component},
 ];
 

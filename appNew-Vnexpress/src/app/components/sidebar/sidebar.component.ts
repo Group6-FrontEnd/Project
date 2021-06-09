@@ -58,7 +58,7 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
-      name: 'Cài đặt', link: '', icon: 'settings',
+      name: 'Cài đặt', link: 'settings', icon: 'settings',
       children: [
         { name: '', link: '', icon: '' }
       ]

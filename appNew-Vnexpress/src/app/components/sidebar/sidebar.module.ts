@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTreeModule} from '@angular/material/tree';
-
+import { MatMenuModule } from '@angular/material/menu';
 import { SidebarRoutingModule } from './sidebar-routing.module';
 @NgModule({
   declarations: [SidebarComponent],
@@ -17,6 +17,7 @@ import { SidebarRoutingModule } from './sidebar-routing.module';
     MatListModule,
     MatExpansionModule,
     MatTreeModule,
+    MatMenuModule,
     SidebarRoutingModule
   ],
   exports: [

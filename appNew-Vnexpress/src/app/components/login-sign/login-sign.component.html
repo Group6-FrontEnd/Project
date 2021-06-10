@@ -76,9 +76,9 @@
                             <span class="text-danger" *ngIf="regForm.controls.email.errors && regForm.controls.email.touched"><br>Email / số điện thoại di động không hợp lệ</span>
                         </div>
                         <div class="auth-form_group-left">
-                            <i class="fa fa-lock" aria-hidden="true"></i>
-                            <a href="" class="eye"><i class="fa fa-eye-slash" aria-hidden="true" style="padding-left: 10px;"></i></a>
-                            <input [(ngModel)]="password" type="password" class="auth-form_input" placeholder="Tạo mật khẩu" formControlName="password">
+                            <i class="fa fa-lock" aria-hidden="true" ></i>
+                            <a class="eye"><i class="fa fa-eye-slash" aria-hidden="true" style="padding-left: 10px;" (click)="showHidden()"></i></a>
+                            <input [(ngModel)]="password" [type] ="passwordType" class="auth-form_input" placeholder="Tạo mật khẩu" formControlName="password" >
                             <span class="text-danger" *ngIf="regForm.controls.password.errors && regForm.controls.password.touched"><br>Mật khẩu ít nhất 6 ký tự là bắt buộc</span>
                         </div>
                         <div class="auth-form_group-left">

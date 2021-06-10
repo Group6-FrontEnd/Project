@@ -135,7 +135,6 @@ text-align: center;
   margin: auto;
   flex: none;
   position: relative;
-  z-index: 1;
   width: 800px;
   height: 450px;
   background-image: linear-gradient(var(--linear-gradient),var(--linear-gradient1));
@@ -251,6 +250,7 @@ text-align: center;
   float: right;
   color: var(--black-color);
   text-decoration: none;
+  cursor: pointer;
 }
 .auth-form .auth-form_group-left .eye i{
   font-size:15px;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings',
@@ -9,14 +10,18 @@ export class SettingsComponent implements OnInit {
 
   themeColor = localStorage.getItem('theme-color');  
 
-  constructor() { }
+  constructor( private router: Router) { }
   ngOnInit(): void {}
 
   removeUser(){
-    alert("bạn có muốn xóa tài khoản này không");
+    if(confirm("bạn có muốn xóa tài khoản này không")){
+      this.router.navigateByUrl('login');
+    }
+
   }
   discoloration(theme: string) {
     localStorage.discoloration('theme-color',theme);
     this.themeColor = localStorage.getItem('theme-color');
   }
 }
+  

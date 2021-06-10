@@ -11,7 +11,9 @@ export class LoginSignComponent implements OnInit {
   name: string = 'truong';
   email : String = 'vantruong@gmail.com';
   password: string = '123';
-  flag:boolean = true
+  flag:boolean = true;
+  passwordType : string = 'password';
+  passwordShown : boolean = false;
   
   successMessage:string=""
   loginForm!:FormGroup;
@@ -38,4 +40,13 @@ export class LoginSignComponent implements OnInit {
     this.accountService.changeMessage(this.name);
     this.successMessage = "Successfully Loggined/Register In ... "
   }
+  public showHidden(){
+    if(this.passwordShown){
+    this.passwordShown = false;
+    this.passwordType = 'password';
+    }else{
+    this.passwordShown = true;
+    this.passwordType = '!password';
+  }
+}
 }

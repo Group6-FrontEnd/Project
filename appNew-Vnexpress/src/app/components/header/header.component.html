@@ -1,61 +1,62 @@
-    <mat-toolbar color="primary" class="nav-height header">
-        <mat-toolbar-row>
+<mat-toolbar color="primary" class="nav-height header">
+    <mat-toolbar-row>
+        <button mat-icon-button>
+      <mat-icon (click)="toggleSideNav()">menu</mat-icon>
+    </button>
+        <div class="title">
+            <a mat-button [routerLink]="['/home-page']" [routerLinkActive]="'active-link'">
+                <h1>BlogNew</h1>
+                <span class="vnexpress">vnexpress</span>
+            </a>
+        </div>
+        <span class="example-spacer"></span>
+        <div class="header-right">
+            <input type="text" name="" id="" class="seach">
             <button mat-icon-button>
-        <mat-icon (click)="toggleSideNav()">menu</mat-icon>
-        </button>
-            <div class="title">
-                <a mat-button [routerLink]="['/home-page']" [routerLinkActive]="'active-link'">
-                    <h1>BlogNew</h1>
-                    <span class="vnexpress">vnexpress</span>
+        <mat-icon>search</mat-icon>
+      </button>
+            <span *ngIf="account.length===0; then thenLogin else esleLogin "></span>
+            <ng-template #thenLogin>
+                <a mat-button [routerLink]="['/login']" [routerLinkActive]="'active-link'">
+                    <mat-icon>account_circle</mat-icon><span>&nbsp;Đăng nhập</span>
                 </a>
-            </div>
-            <span class="example-spacer"></span>
-            <div class="header-right">
-                <input type="text" name="" id="" class="seach">
-                <button mat-icon-button>
-                    <mat-icon>search</mat-icon>
-                </button>
-                <span *ngIf="name ==='Đăng nhập'; then thenLogin else esleLogin "></span>
-                <ng-template #thenLogin>
-                    <a *ngIf="name ==='Đăng nhập'" mat-button [routerLink]="['/login']" [routerLinkActive]="'active-link'">
-                        <mat-icon>account_circle</mat-icon><span>&nbsp;{{name}}</span>
+            </ng-template>
+            <ng-template #esleLogin>
+                <button mat-button [matMenuTriggerFor]="menu">
+          <img src="https://i.pinimg.com/236x/88/17/e2/8817e2e498c18da5942df9fdba279e04.jpg" alt="avata">&nbsp;
+          &nbsp;{{account[0].name}}
+          <mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+                <button class="noti">
+          <mat-icon matBadge="2" matBadgeColor="warn">notifications_active</mat-icon>
+        </button>
+            </ng-template>
+            <mat-menu #menu="matMenu">
+                <mat-nav-list class="menu-sublist">
+                    <a mat-list-item [routerLink]="['/edit-info']" [routerLinkActive]="'active-link'">
+                        <mat-icon>edit</mat-icon>&nbsp;&nbsp;
+                        <span>Chỉnh sửa thông tin</span>
                     </a>
-                </ng-template>
-                <ng-template #esleLogin>
-                    <button mat-button [matMenuTriggerFor]="menu">
-                    <img src="https://i.pinimg.com/236x/88/17/e2/8817e2e498c18da5942df9fdba279e04.jpg" alt="">&nbsp; &nbsp;{{name}}
-                    <mat-icon>keyboard_arrow_down</mat-icon>
-                </button>
-                    <button class="noti">
-                    <mat-icon matBadge="2" matBadgeColor="warn">notifications_active</mat-icon>
-                </button>
-                </ng-template>
-                <mat-menu #menu="matMenu">
-                    <mat-nav-list class="menu-sublist">
-                        <a mat-list-item [routerLink]="['/editInfor']" [routerLinkActive]="'active-link'">
-                            <mat-icon>edit</mat-icon>&nbsp;&nbsp;
-                            <span>Chỉnh sửa thông tin</span>
-                        </a>
-                    </mat-nav-list>
-                    <mat-nav-list class="menu-sublist">
-                        <a mat-list-item [routerLink]="['/changePass']" [routerLinkActive]="'active-link'">
-                            <mat-icon>https</mat-icon>&nbsp;&nbsp;
-                            <span>Đổi mật khẩu</span>
-                        </a>
-                    </mat-nav-list>
-                    <mat-nav-list class="menu-sublist">
-                        <a mat-list-item [routerLink]="['/feedback']" [routerLinkActive]="'active-link'">
-                            <mat-icon>feedback</mat-icon>&nbsp;&nbsp;
-                            <span>Đánh giá và phản hồi</span>
-                        </a>
-                    </mat-nav-list>
-                    <mat-nav-list class="menu-sublist">
-                        <a mat-list-item href="">
-                            <mat-icon>exit_to_app</mat-icon>&nbsp;&nbsp;
-                            <span>Đăng xuất</span>
-                        </a>
-                    </mat-nav-list>
-                </mat-menu>
-            </div>
-        </mat-toolbar-row>
-    </mat-toolbar>
+                </mat-nav-list>
+                <mat-nav-list class="menu-sublist">
+                    <a mat-list-item [routerLink]="['/changePass']" [routerLinkActive]="'active-link'">
+                        <mat-icon>https</mat-icon>&nbsp;&nbsp;
+                        <span>Đổi mật khẩu</span>
+                    </a>
+                </mat-nav-list>
+                <mat-nav-list class="menu-sublist">
+                    <a mat-list-item [routerLink]="['/feedback']" [routerLinkActive]="'active-link'">
+                        <mat-icon>feedback</mat-icon>&nbsp;&nbsp;
+                        <span>Đánh giá và phản hồi</span>
+                    </a>
+                </mat-nav-list>
+                <mat-nav-list class="menu-sublist">
+                    <a mat-list-item href="">
+                        <mat-icon>exit_to_app</mat-icon>&nbsp;&nbsp;
+                        <span>Đăng xuất</span>
+                    </a>
+                </mat-nav-list>
+            </mat-menu>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

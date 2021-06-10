@@ -1,16 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-
+import { Account } from 'src/app/models/account';
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  private accountSource = new BehaviorSubject('Đăng nhập');
+  public accounts: Account[] = [];
+  private accountSource = new BehaviorSubject(this.accounts);
   currentAccount = this.accountSource.asObservable();
-
   constructor() { }
 
-  changeMessage(name: string) {
+  changeMessage(name: any) {
     this.accountSource.next(name);
   }
 }

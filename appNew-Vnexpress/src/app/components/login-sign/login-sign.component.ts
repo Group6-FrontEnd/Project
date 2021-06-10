@@ -1,6 +1,7 @@
 import { FormGroup, FormBuilder, Validators, Form } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/services/account/account.service';
+import { Account } from 'src/app/models/account';
 
 @Component({
   selector: 'app-login-sign',
@@ -8,45 +9,55 @@ import { AccountService } from 'src/app/services/account/account.service';
   styleUrls: ['./login-sign.component.scss'],
 })
 export class LoginSignComponent implements OnInit {
-  name: string = 'truong';
-  email : String = 'vantruong@gmail.com';
-  password: string = '123';
-  flag:boolean = true;
-  passwordType : string = 'password';
-  passwordShown : boolean = false;
-  
-  successMessage:string=""
-  loginForm!:FormGroup;
-  regForm!:FormGroup;
-  
-  apply(value:string){
-    this.flag = value == "login"?true:false;
+  // name: string = 'truong';
+  // email : String = 'vantruong@gmail.com';
+  // password: string = '123';
+  flag: boolean = true;
+  passwordType: string = 'password';
+  passwordShown: boolean = false;
+
+  public accounts: Account[] = [{id: '1', name: 'Ly Na', email: 'na@gmail.com', password: '123'}];
+  public account: Account[]=[];
+  successMessage: string = ""
+  loginForm!: FormGroup;
+  regForm!: FormGroup;
+
+  apply(value: string) {
+    this.flag = value == "login" ? true : false;
   }
-  
-  constructor(private accountService: AccountService , private fb: FormBuilder) { }
+
+  constructor(private accountService: AccountService, private fb: FormBuilder) { }
   ngOnInit(): void {
-    this.accountService.currentAccount.subscribe(name => this.name = name);
+    this.loadData();
     this.loginForm = this.fb.group({
       name: ['', [Validators.required]],
       password: ['', [Validators.required, Validators.pattern("[a-zA-Z0-9@!_]{6,}")]]
     })
     this.regForm = this.fb.group({
       name: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.pattern("[a-zA-Z0-9]*@gmail.com") , Validators.min(100000000000), Validators.max(99999999999)]],
+      email: ['', [Validators.required, Validators.pattern("[a-zA-Z0-9]*@gmail.com"), Validators.min(100000000000), Validators.max(99999999999)]],
       password: ['', [Validators.required, Validators.pattern("[a-zA-Z0-9@!_]{6,}")]]
     })
   }
   login() {
-    this.accountService.changeMessage(this.name);
+    this.accountService.changeMessage(this.accounts);
     this.successMessage = "Successfully Loggined/Register In ... "
   }
-  public showHidden(){
-    if(this.passwordShown){
-    this.passwordShown = false;
-    this.passwordType = 'password';
-    }else{
-    this.passwordShown = true;
-    this.passwordType = '!password';
+  public showHidden() {
+    if (this.passwordShown) {
+      this.passwordShown = false;
+      this.passwordType = 'password';
+    } else {
+      this.passwordShown = true;
+      this.passwordType = '!password';
+    }
+
   }
-}
+  private loadData() {
+    this.accountService.currentAccount.subscribe((data) => {
+      console.log('getAccount', data);
+      this.account = data;
+      console.log('AccountNew', this.account);
+    });
+  }
 }

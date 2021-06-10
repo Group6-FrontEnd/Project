@@ -11,7 +11,7 @@ import { SettingsComponent } from '../settings/settings.component';
 const routes: Routes = [
   { path: 'home-page', component: HomePageComponent },
   { path: 'login', component: LoginSignComponent },
-  { path: 'editInfor', component: EditInforComponent },
+  { path: 'edit-info', component: EditInforComponent },
   { path: 'changePass', component: ChangePassComponent },
   { path: 'feedback', component: FeedbackComponent },
   { path: 'settings', component: SettingsComponent},

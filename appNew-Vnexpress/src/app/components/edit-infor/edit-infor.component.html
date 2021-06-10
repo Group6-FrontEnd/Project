@@ -8,7 +8,8 @@
         <br>
         <mat-form-field appearance="fill" class="full-width">
             <mat-label>Tên</mat-label>
-            <input matInput #message maxlength="256" value={{name}}>
+            <input matInput #message maxlength="256" [formControl]="name" [(ngModel)]="account[0].name">
+            <mat-error *ngIf="name.invalid">{{getErrorMessageName()}}</mat-error>
             <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
         </mat-form-field>
         <br>
@@ -16,26 +17,28 @@
         <p>Mọi thông tin liên lạc sẽ gửi vào địa chỉ này</p>
         <mat-form-field appearance="fill" class="full-width">
             <mat-label>Email: abc@gmail.com</mat-label>
-            <input matInput [formControl]="email" required #emails maxlength="256">
-            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            <input matInput [formControl]="email" required #emails maxlength="256" [(ngModel)]="account[0].email">
+            <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
             <mat-hint align="end">{{emails.value.length}} / 256</mat-hint>
         </mat-form-field>
     </div>
     <label class="avata-text"><h2><b>Ảnh đại diện: </b></h2></label>
     <br>
     <div class="avata-image">
-        <img src="https://i.pinimg.com/236x/88/17/e2/8817e2e498c18da5942df9fdba279e04.jpg" alt="">
+        <img [src]="url" alt="avata">
         <mat-icon [matMenuTriggerFor]="menu">edit</mat-icon>
     </div>
     <mat-menu #menu="matMenu">
         <mat-nav-list class="menu-sublist">
             <a mat-list-ite>
-                <span>Tải ảnh lên...</span>
+                <label class="btn btn-default btn-file">Tải ảnh lên...
+                    <input type="file" (change)="onSelectFile($event)" style="display: none;">
+                  </label>
             </a>
         </mat-nav-list>
         <mat-nav-list class="menu-sublist">
             <a mat-list-ite>
-                <span>Gỡ bỏ hình</span>
+                <button type="button" class="btn btn-sm btn-default" (click)="clearFile()">&nbsp;Gỡ bỏ hình</button>
             </a>
         </mat-nav-list>
     </mat-menu>

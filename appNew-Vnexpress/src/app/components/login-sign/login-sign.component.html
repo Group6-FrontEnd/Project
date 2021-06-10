@@ -19,12 +19,12 @@
                     <div class="auth-form_form-login">
                         <div class="auth-form_group-left">
                             <i class="fa fa-user" aria-hidden="true"></i>
-                            <input [(ngModel)]="name" type="text" class="auth-form_input" placeholder="nhập tên" formControlName="name">
+                            <input [(ngModel)]="accounts[0].name" type="text" class="auth-form_input" placeholder="nhập tên" formControlName="name">
                             <span class="text-danger" *ngIf="loginForm.controls.name.errors && loginForm.controls.name.touched"><br>Tên là bắt buộc</span>
                         </div>
                         <div class="auth-form_group-left">
                             <i class="fa fa-lock" aria-hidden="true"></i>
-                            <input [(ngModel)]="password" type="password" class="auth-form_input" placeholder="nhập mật khẩu" formControlName="password">
+                            <input [(ngModel)]="accounts[0].password" type="password" class="auth-form_input" placeholder="nhập mật khẩu" formControlName="password">
                             <span class="text-danger" *ngIf="loginForm.controls.password.errors && loginForm.controls.password.touched"><br>Mật khẩu ít nhất 6 ký tự là bắt buộc</span>
                         </div>
                         <div class="auth-form_group-left">
@@ -67,18 +67,18 @@
                     <div class="auth-form_form-login">
                         <div class="auth-form_group-left">
                             <i class="fa fa-user" aria-hidden="true"></i>
-                            <input [(ngModel)]="name" type="text" class="auth-form_input" placeholder="Nhập tên" formControlName="name">
+                            <input [(ngModel)]="accounts[0].name" type="text" class="auth-form_input" placeholder="Nhập tên" formControlName="name">
                             <span class="text-danger" *ngIf="regForm.controls.name.errors && regForm.controls.name.touched"><br>Tên là bắt buộc</span>
                         </div>
                         <div class="auth-form_group-left">
                             <i class="fa fa-envelope" aria-hidden="true" style="padding-left:15px"></i>
-                            <input [(ngModel)]="email" type="text" class="auth-form_input" placeholder="Nhập email/sdt" formControlName="email">
+                            <input [(ngModel)]="accounts[0].email" type="text" class="auth-form_input" placeholder="Nhập email/sdt" formControlName="email">
                             <span class="text-danger" *ngIf="regForm.controls.email.errors && regForm.controls.email.touched"><br>Email / số điện thoại di động không hợp lệ</span>
                         </div>
                         <div class="auth-form_group-left">
-                            <i class="fa fa-lock" aria-hidden="true" ></i>
+                            <i class="fa fa-lock" aria-hidden="true"></i>
                             <a class="eye"><i class="fa fa-eye-slash" aria-hidden="true" style="padding-left: 10px;" (click)="showHidden()"></i></a>
-                            <input [(ngModel)]="password" [type] ="passwordType" class="auth-form_input" placeholder="Tạo mật khẩu" formControlName="password" >
+                            <input [(ngModel)]="accounts[0].password" [type]="passwordType" class="auth-form_input" placeholder="Tạo mật khẩu" formControlName="password">
                             <span class="text-danger" *ngIf="regForm.controls.password.errors && regForm.controls.password.touched"><br>Mật khẩu ít nhất 6 ký tự là bắt buộc</span>
                         </div>
                         <div class="auth-form_group-left">

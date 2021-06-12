@@ -11,6 +11,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
+
+import { EditInforRoutingModule } from './edit-infor-routing.module';
 @NgModule({
   declarations: [
     EditInforComponent
@@ -23,7 +25,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatIconModule,
     MatMenuModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    EditInforRoutingModule
   ]
 })
 export class EditInforModule { }

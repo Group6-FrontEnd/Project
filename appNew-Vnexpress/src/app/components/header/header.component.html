@@ -1,8 +1,8 @@
 <mat-toolbar color="primary" class="nav-height header">
     <mat-toolbar-row>
         <button mat-icon-button>
-      <mat-icon (click)="toggleSideNav()">menu</mat-icon>
-    </button>
+            <mat-icon (click)="toggleSideNav()">menu</mat-icon>
+        </button>
         <div class="title">
             <a mat-button [routerLink]="['/home-page']" [routerLinkActive]="'active-link'">
                 <h1>BlogNew</h1>
@@ -13,8 +13,8 @@
         <div class="header-right">
             <input type="text" name="" id="" class="seach">
             <button mat-icon-button>
-        <mat-icon>search</mat-icon>
-      </button>
+                <mat-icon>search</mat-icon>
+            </button>
             <span *ngIf="account.length===0; then thenLogin else esleLogin "></span>
             <ng-template #thenLogin>
                 <a mat-button [routerLink]="['/login']" [routerLinkActive]="'active-link'">
@@ -22,14 +22,17 @@
                 </a>
             </ng-template>
             <ng-template #esleLogin>
-                <button mat-button [matMenuTriggerFor]="menu">
-          <img src="https://i.pinimg.com/236x/88/17/e2/8817e2e498c18da5942df9fdba279e04.jpg" alt="avata">&nbsp;
-          &nbsp;{{account[0].name}}
-          <mat-icon>keyboard_arrow_down</mat-icon>
-        </button>
+                <button mat-button [matMenuTriggerFor]="menu" #tooltip="matTooltip"
+                    matTooltip="Xin chào đến với BlogNew" matTooltipPosition="above">
+                    <div class="avata-image">
+                        <img [src]="account[0].image" alt="avata">
+                    </div>
+                    &nbsp;&nbsp;{{account[0].name}}
+                    <mat-icon>keyboard_arrow_down</mat-icon>
+                </button>
                 <button class="noti">
-          <mat-icon matBadge="2" matBadgeColor="warn">notifications_active</mat-icon>
-        </button>
+                    <mat-icon matBadge="2" matBadgeColor="warn">notifications_active</mat-icon>
+                </button>
             </ng-template>
             <mat-menu #menu="matMenu">
                 <mat-nav-list class="menu-sublist">
@@ -60,3 +63,11 @@
         </div>
     </mat-toolbar-row>
 </mat-toolbar>
+<div class="noti-bubble" *ngIf="visible && account.length>0">
+    <button mat-button (click)="visible = false" class="button-close">
+        <mat-icon>close</mat-icon>
+    </button>
+    <marquee>Cảm ơn các bạn đã ghé thăm BlogNew! Chúc các bạn một ngày vui vẻ 😍</marquee>
+    <div class="bubble-arrow-border"></div>
+    <div class="bubble-arrow"></div>
+</div>

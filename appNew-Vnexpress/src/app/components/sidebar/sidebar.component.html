@@ -15,7 +15,7 @@
                         <span class="label" [@labelAnimation]="sidebarState ">{{ node?.name }} </span>
                     </a>
                     <button mat-icon-button matTreeNodeToggle *ngIf="node.name==='Trang chủ'" class="button">
-                        <mat-icon [@labelAnimation]="sidebarState" >
+                        <mat-icon [@labelAnimation]="sidebarState">
                             {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
                         </mat-icon>
                     </button>

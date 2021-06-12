@@ -3,7 +3,9 @@
         <h1><b>Đánh giá và phản hồi</b></h1>
     </div>
     <div>
-        <label><h2><b>Đánh giá: </b></h2></label>
+        <label>
+            <h2><b>Đánh giá: </b></h2>
+        </label>
         <br>
         <div class="stars">
             <form action="">
@@ -20,16 +22,31 @@
             </form>
         </div>
         <br>
-        <label><h2><b>Phản hồi: </b></h2></label>
+        <label>
+            <h2><b>Phản hồi: </b></h2>
+        </label>
         <br>
         <mat-form-field appearance="fill" class="full-width">
             <mat-label>Phản hồi</mat-label>
             <textarea matInput></textarea>
         </mat-form-field>
         <div class="button-row">
-            <a href="">
+            <a (click)="visible = true">
                 <button mat-raised-button color="warn">Gửi</button>
             </a>
         </div>
     </div>
+</div>
+<div class="alert-box success" *ngIf="visible">
+    <button class="tick">
+        <mat-icon>done_all</mat-icon>
+    </button>
+    <br>
+    <div class="noti-text">
+        <span>Bạn đã gửi thành công</span>
+        <p>Nhấm ok để tiếp tục. Xin cảm ơn.</p>
+    </div>
+    <a [routerLink]="['/home-page']" [routerLinkActive]="'active-link'">
+        <button mat-raised-button class="button-ok">OK</button>
+    </a>
 </div>

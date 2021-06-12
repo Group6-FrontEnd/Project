@@ -9,7 +9,7 @@ import { Account } from 'src/app/models/account';
   styleUrls: ['./edit-infor.component.scss']
 })
 export class EditInforComponent implements OnInit {
-  url = 'https://i.pinimg.com/236x/88/17/e2/8817e2e498c18da5942df9fdba279e04.jpg';
+  // url = 'https://i.pinimg.com/236x/88/17/e2/8817e2e498c18da5942df9fdba279e04.jpg';
   public account: Account[] = [];
   name= new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -37,14 +37,14 @@ export class EditInforComponent implements OnInit {
       var reader = new FileReader();
 
       reader.onload = (event: any) => {
-        this.url = event.target.result;
+        this.account[0].image = event.target.result;
       }
 
       reader.readAsDataURL(event.target.files[0]);
     }
   }
   clearFile() {
-    this.url = '';
+    this.account[0].image = '';
   }
   loadAccount() {
     this.accountService.currentAccount.subscribe(name => {

@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatListModule } from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { HeaderRoutingModule } from './header-routing.module';
 @NgModule({
@@ -20,7 +21,8 @@ import { HeaderRoutingModule } from './header-routing.module';
     MatMenuModule,
     MatBadgeModule,
     MatListModule,
-    HeaderRoutingModule
+    HeaderRoutingModule,
+    MatTooltipModule
   ],
   exports: [
     HeaderComponent,

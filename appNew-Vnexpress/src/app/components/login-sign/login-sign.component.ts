@@ -16,7 +16,7 @@ export class LoginSignComponent implements OnInit {
   passwordType: string = 'password';
   passwordShown: boolean = false;
 
-  public accounts: Account[] = [{id: '1', name: 'Ly Na', email: 'na@gmail.com', password: '123'}];
+  public accounts: Account[] = [{id: '1', name: 'Ly Na', email: 'na@gmail.com', password: '123',image:'https://i.pinimg.com/236x/88/17/e2/8817e2e498c18da5942df9fdba279e04.jpg'}];
   public account: Account[]=[];
   successMessage: string = ""
   loginForm!: FormGroup;

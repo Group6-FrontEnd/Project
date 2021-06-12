@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { EditInforRoutingModule } from '../edit-infor/edit-infor-routing.module';
 @NgModule({
   declarations: [
     FeedbackComponent
@@ -15,7 +16,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    EditInforRoutingModule
   ]
 })
 export class FeedbackModule { }

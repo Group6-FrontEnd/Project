@@ -3,8 +3,9 @@
         <h1><b>Thông tin tài khoản</b></h1>
     </div>
     <div class="example-container" class="form">
-        <label><h2><b>Tên của bạn: </b></h2>
-            </label>
+        <label>
+            <h2><b>Tên của bạn: </b></h2>
+        </label>
         <br>
         <mat-form-field appearance="fill" class="full-width">
             <mat-label>Tên</mat-label>
@@ -13,7 +14,9 @@
             <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
         </mat-form-field>
         <br>
-        <label><h2><b>Email: </b></h2></label>
+        <label>
+            <h2><b>Email: </b></h2>
+        </label>
         <p>Mọi thông tin liên lạc sẽ gửi vào địa chỉ này</p>
         <mat-form-field appearance="fill" class="full-width">
             <mat-label>Email: abc@gmail.com</mat-label>
@@ -22,10 +25,12 @@
             <mat-hint align="end">{{emails.value.length}} / 256</mat-hint>
         </mat-form-field>
     </div>
-    <label class="avata-text"><h2><b>Ảnh đại diện: </b></h2></label>
+    <label class="avata-text">
+        <h2><b>Ảnh đại diện: </b></h2>
+    </label>
     <br>
     <div class="avata-image">
-        <img [src]="url" alt="avata">
+        <img [src]="account[0].image" alt="avata">
         <mat-icon [matMenuTriggerFor]="menu">edit</mat-icon>
     </div>
     <mat-menu #menu="matMenu">
@@ -33,7 +38,7 @@
             <a mat-list-ite>
                 <label class="btn btn-default btn-file">Tải ảnh lên...
                     <input type="file" (change)="onSelectFile($event)" style="display: none;">
-                  </label>
+                </label>
             </a>
         </mat-nav-list>
         <mat-nav-list class="menu-sublist">
@@ -43,7 +48,7 @@
         </mat-nav-list>
     </mat-menu>
     <div class="button-row">
-        <a href="">
+        <a [routerLink]="['/home-page']" [routerLinkActive]="'active-link'">
             <button mat-raised-button color="warn">Lưu thay đổi</button>
         </a>
     </div>

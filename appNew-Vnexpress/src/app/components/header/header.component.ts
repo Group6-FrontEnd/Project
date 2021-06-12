@@ -11,6 +11,7 @@ import { Account } from 'src/app/models/account';
 export class HeaderComponent implements OnInit {
    public account: Account[]=[];
   //  url = 'https://i.pinimg.com/236x/88/17/e2/8817e2e498c18da5942df9fdba279e04.jpg';
+  visible:boolean = true;
   constructor(private sidebarService: SidebarService,
     private accountService: AccountService) {
   }

@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feedback.component.scss']
 })
 export class FeedbackComponent implements OnInit {
-
+  visible:boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  send() {
+    alert("Đã gửi thành công");
+  }
 }

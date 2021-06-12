@@ -1,7 +1,6 @@
 .header {
     background-color: #F3EBEB;
     color: black;
-    height: 80px;
 }
 
 .vnexpress {
@@ -15,11 +14,11 @@
 .title {
     padding-top: 30px;
     padding-left: 2px;
+    h1 {
+        font-size: 30px;
+    }
 }
 
-.title h1 {
-    font-size: 30px;
-}
 
 .header-right {
     padding-right: 10px;
@@ -44,11 +43,19 @@
     width: 250px;
     top: 3px;
 }
-
-img {
-    border-radius: 50%;
-    width: 50px;
+.avata-image {
+    width: 40px;
+    height: 40px;  
+    float: left;
+    img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid black;
+        font-size: 10px;
+    }
 }
+
 
 :focus-visible {
     outline: none;
@@ -59,4 +66,53 @@ img {
     justify-content: space-between;
     flex: 1;
     padding: 0;
+}
+// ---------------------------------------------------
+.noti-bubble{
+    border: 2px solid #dfd1d1;
+    font-size: 35px;
+    line-height: 1.3em;
+    margin: 10px auto;
+    padding: 10px;
+    position: absolute;
+    text-align: center;
+    width: 601px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-box-shadow: 0 0 5px #888888;
+    -webkit-box-shadow: 0 0 5px #888888;
+    right: 10px;
+    z-index: 2;
+    background-image: linear-gradient(to right, rgb(23, 0, 128), pink);
+    float: right;
+}
+  .bubble-arrow-border {
+    border-color:  transparent transparent #dfd1d1 transparent;
+    border-style: solid;
+    border-width: 10px;
+    height:0;
+    width:0;
+    position:absolute;
+    top:-22px;
+    right:23px;
+  }
+  .bubble-arrow {
+    border-color:  transparent  transparent pink transparent;
+    border-style: solid;
+    border-width: 10px;
+    height:0;
+    width:0;
+    position:absolute;
+    top:-20px;
+    right:23px;
+  }
+//   -------------------------
+.button-close{
+    position: absolute;
+    color: red;
+    left: 530px;
+}
+marquee{
+    width: 520px;
+    float: left;
 }

@@ -234,6 +234,11 @@ text-align: center;
 .auth-form .auth-form_group-left{
   position: relative;
   padding : 6px;
+  .eye{
+    i{
+      padding-left: 10px;
+    }
+  }
 }
 .auth-form .auth-form_group-left:hover i{
   font-size : 16px;
@@ -316,28 +321,245 @@ text-align: center;
 .button_fb i{
   padding-right: 26px;
   color: #002BFF;
+  font-size:16px
 }
 .button_gg i{
   padding-right: 26px;
   color: var(--black-color);
+  font-size:16px
 }
 .button_ap i{
   padding-right: 26px;
   color: var(--black-color);
+  font-size:16px
 }
 .button_fb-name{}
 .button_gg-name,
 .button_ap-name{
   color: var(--black-color);
 }
-.button_fb:hover .button_fb-name,i {
+.button_fb:hover .button_fb-name,
+.button_fb:hover i {
   font-size: 18px;
 }
-.button_gg:hover .button_gg-name,i {
+.button_gg:hover .button_gg-name,
+.button_gg:hover i {
   font-size: 18px;
 }
-.button_ap:hover .button_ap-name,i{
+.button_ap:hover .button_ap-name,
+.button_ap:hover i{
   font-size: 18px;
 }
 /* ---------------------------End modal layout---------------------  */
 
+/* 
+    pc: >=1024px
+    720px < tablet < 1024px
+    mobile < 720px 
+*/
+/* pc */
+@media (min-width:1024px){   
+}
+
+/* tablet */
+@media (min-width:730px) and (max-width:1023px){ 
+  .modal{
+
+    .form{
+      width: 600px;
+      height: 350px;
+      margin-top:220px ;
+
+      .button_ap-name{
+        color: var(--black-color);
+      }
+      .authen-form_header-down{
+        height: 70px;
+        padding: 18px 1px;
+        font-size: 13px;
+      }
+      // 2
+      .auth-form_heading-down{
+        padding: 5px 20px;
+        font-size: 13px;
+      }
+      .auth-form_switch-down{
+        padding: 5px 20px;
+        font-size: 13px;
+      }
+      // end 2
+      // 3
+      // phai
+      .auth-form_form-login{
+        .eye{
+          margin-right: 101px;
+        }
+      }
+      // trai
+      .auth-form_form-control{
+        .auth-form_group-right1{
+          padding: 8px 0 8px 14px;
+          margin: 0 0 20px 52px;
+          .button_fb{
+            i{
+              padding-left: 0px;
+              padding-right: 15px;
+              font-size: 15px;
+            }
+          }
+          .button_fb:hover .button_fb-name,
+          .button_fb:hover i{             
+            font-size: 16px;
+          }
+        }
+        .auth-form_group-right2{
+          padding: 8px 0 8px 14px;
+          margin: 0 0 20px 52px;
+          .button_gg{
+            i{
+              padding-left: 0px;
+              padding-right: 15px;
+              font-size: 15px;
+            }
+          }
+          .button_gg:hover .button_gg-name,
+          .button_gg:hover i{
+              font-size: 16px;
+          }
+      }
+        .auth-form_group-right3{
+          padding: 8px 0 8px 14px;
+          margin: 0 0 20px 52px;
+          .button_ap{
+            i{
+              padding-left: 0px;
+              padding-right: 15px;
+              font-size: 15px;
+            }
+          }
+          .button_ap:hover .button_ap-name,
+          .button_ap:hover i{
+            font-size: 16px;
+          }
+        }
+      }
+      // }end trai
+      // end 
+      .eye{
+        i{
+          margin-left: 0px;
+        }
+      }
+    }
+  } 
+}
+
+/* mobile */
+@media (max-width:720px){  
+  .modal{ 
+    .form{
+      width: 300px;
+      height: 450px;
+      margin: 152px 56px;
+      .tab-header{
+          .dn{
+            width: 50%;
+            font-size: 21px;
+          }
+          .dk{
+            width: 50%;
+            font-size: 21px;
+          }
+      }
+      .tab-content{
+        .auth-form{
+          .authen-form_header-down{
+            display: block;
+            .auth-form_heading-down{
+              width: 100%;
+              text-align: center;
+              padding: 8px 20px;
+              font-size: 16px;
+            }
+            .auth-form_switch-down{
+              width: 100%;
+              text-align: center;
+              padding: 0px 0px;
+              margin-top: -10px;
+              font-size: 0px;
+            }
+          }
+          .auth-form_form{
+            display: block;
+              .auth-form_form-login{
+                text-align: center;
+                width: 100%;
+                  .eye{
+                    i{
+                      margin-left: 30px;
+                    }
+                  }
+              }
+              .auth-form_form-control{ 
+                display: flex;
+                text-align: center;
+                width: 100%; 
+                padding-top: 45px;
+                  .auth-form_group-right1{
+                    padding: 8px 0 8px 0px;
+                    margin: 0;
+                    background-color: #4f6cfa;
+                      .button_fb{
+                          i{
+                            padding-left: 0px;
+                            padding-right: 10px;
+                            font-size: 15px;
+                            color: var(--linear-gradient);
+                          }
+                          .button_fb-name{
+                            color: var(--linear-gradient);
+                          }
+                      }
+                      .button_fb:hover .button_fb-name,i {             
+                        font-size: 16px;
+                      }
+                  }
+                  .auth-form_group-right2{
+                    padding: 8px 0 8px 0px;
+                    margin: 0;
+                    background-image: linear-gradient(to right,var(--linear-gradient),var(--linear-gradient1));
+                      .button_gg{
+                          i{
+                            padding-left: 0px;
+                            padding-right: 10px;
+                            font-size: 15px;
+                          }
+                        }
+                      .button_gg:hover .button_gg-name,i {
+                        font-size: 16px;
+                      }
+                  }
+                .auth-form_group-right3{
+                  padding: 8px 0 8px 0px;
+                  margin: 0;
+                    .button_ap{
+                        i{
+                          padding-left: 0px;
+                          padding-right: 10px;
+                          font-size: 15px;
+                        }
+                      }
+                      .button_ap:hover .button_ap-name,i{
+                        font-size: 16px;
+                      }
+                }
+              }           
+                .button_ap-name{
+                  color: var(--black-color);
+                }  
+              }
+            }
+          }
+        }
+    }
+  } 

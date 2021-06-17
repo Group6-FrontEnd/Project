@@ -12,7 +12,7 @@
         <div class="tab-content">
             <div class="auth-form" *ngIf="flag" [formGroup]="loginForm">
                 <div class="authen-form_header-down">
-                    <div class="auth-form_heading-down">Đăng nhập bằng email</div>
+                    <div class="auth-form_heading-down">Đăng nhập bằng Tên/Email</div>
                     <div class="auth-form_switch-down">Đăng nhập với</div>
                 </div>
                 <div class="auth-form_form ">
@@ -90,7 +90,7 @@
                         </div>
                         <div class="auth-form_group-left">
                             <i class="fa fa-lock" aria-hidden="true"></i>
-                            <a class="eye"><i class="fa fa-eye-slash" aria-hidden="true" style="padding-left: 10px;"
+                            <a class="eye"><i class="fa fa-eye-slash" aria-hidden="true"
                                     (click)="showHidden()"></i></a>
                             <input [(ngModel)]="accounts[0].password" [type]="passwordType" class="auth-form_input"
                                 placeholder="Tạo mật khẩu" formControlName="password">

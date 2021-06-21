@@ -8,6 +8,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatMenuModule } from '@angular/material/menu';
 import { SidebarRoutingModule } from './sidebar-routing.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [SidebarComponent],
   imports: [
@@ -18,7 +19,8 @@ import { SidebarRoutingModule } from './sidebar-routing.module';
     MatExpansionModule,
     MatTreeModule,
     MatMenuModule,
-    SidebarRoutingModule
+    SidebarRoutingModule,
+    FlexLayoutModule
   ],
   exports: [
     SidebarComponent,

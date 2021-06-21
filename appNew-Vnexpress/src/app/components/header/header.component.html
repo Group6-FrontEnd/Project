@@ -9,8 +9,9 @@
                 <span class="vnexpress">vnexpress</span>
             </a>
         </div>
-        <span class="example-spacer"></span>
-        <div class="header-right">
+        <span class="spacer"></span>
+        <!-- ---------------------------------------------------- -->
+        <div class="header-right" fxShow.lt-md="false" fxShow.gt-sm="true">
             <input type="text" name="" id="" class="seach">
             <button mat-icon-button>
                 <mat-icon>search</mat-icon>
@@ -18,56 +19,78 @@
             <span *ngIf="account.length===0; then thenLogin else esleLogin "></span>
             <ng-template #thenLogin>
                 <a mat-button [routerLink]="['/login']" [routerLinkActive]="'active-link'">
-                    <mat-icon>account_circle</mat-icon><span>&nbsp;Đăng nhập</span>
+                    <mat-icon>account_circle</mat-icon><span class="ml-2">&nbsp;Đăng nhập</span>
                 </a>
             </ng-template>
             <ng-template #esleLogin>
-                <button mat-button [matMenuTriggerFor]="menu" #tooltip="matTooltip"
-                    matTooltip="Xin chào đến với BlogNew" matTooltipPosition="above">
+                <button mat-button [matMenuTriggerFor]="menu" #tooltip="matTooltip" matTooltip="Xin chào đến với BlogNew" matTooltipPosition="above">
                     <div class="avata-image">
                         <img [src]="account[0].image" alt="avata">
                     </div>
-                    &nbsp;&nbsp;{{account[0].name}}
+                    <span>&nbsp;&nbsp;{{account[0].name}}</span>
                     <mat-icon>keyboard_arrow_down</mat-icon>
                 </button>
-                <button class="noti">
+                <button mat-icon-button class="noti">
                     <mat-icon matBadge="2" matBadgeColor="warn">notifications_active</mat-icon>
                 </button>
             </ng-template>
-            <mat-menu #menu="matMenu">
-                <mat-nav-list class="menu-sublist">
-                    <a mat-list-item [routerLink]="['/edit-info']" [routerLinkActive]="'active-link'">
-                        <mat-icon>edit</mat-icon>&nbsp;&nbsp;
-                        <span>Chỉnh sửa thông tin</span>
-                    </a>
-                </mat-nav-list>
-                <mat-nav-list class="menu-sublist">
-                    <a mat-list-item [routerLink]="['/changePass']" [routerLinkActive]="'active-link'">
-                        <mat-icon>https</mat-icon>&nbsp;&nbsp;
-                        <span>Đổi mật khẩu</span>
-                    </a>
-                </mat-nav-list>
-                <mat-nav-list class="menu-sublist">
-                    <a mat-list-item [routerLink]="['/feedback']" [routerLinkActive]="'active-link'">
-                        <mat-icon>feedback</mat-icon>&nbsp;&nbsp;
-                        <span>Đánh giá và phản hồi</span>
-                    </a>
-                </mat-nav-list>
-                <mat-nav-list class="menu-sublist">
-                    <a mat-list-item href="">
-                        <mat-icon>exit_to_app</mat-icon>&nbsp;&nbsp;
-                        <span>Đăng xuất</span>
-                    </a>
-                </mat-nav-list>
-            </mat-menu>
+        </div>
+        <!-- ---------------------------------------------------------- -->
+        <div class="header-right" fxShow.lt-md="true" fxShow.gt-sm="false">
+            <button mat-icon-button>
+                <mat-icon>search</mat-icon>
+            </button>
+            <span *ngIf="account.length===0; then thenLoginMd else esleLoginMd "></span>
+            <ng-template #thenLoginMd>
+                <a mat-icon-button [routerLink]="['/login']" [routerLinkActive]="'active-link'">
+                    <mat-icon>account_circle</mat-icon>
+                </a>
+            </ng-template>
+            <ng-template #esleLoginMd>
+                <button mat-icon-button [matMenuTriggerFor]="menu" #tooltip="matTooltip" matTooltip="Xin chào đến với BlogNew" matTooltipPosition="above">
+                    <div class="avata-imageMd">
+                        <img [src]="account[0].image" alt="avata">
+                    </div>
+                </button>
+                <button mat-icon-button class="noti">
+                    <mat-icon matBadge="2" matBadgeColor="warn">notifications_active</mat-icon>
+                </button>
+            </ng-template>
         </div>
     </mat-toolbar-row>
 </mat-toolbar>
-<div class="noti-bubble" *ngIf="visible && account.length>0">
+<!-- -------------------------------------------------- -->
+<mat-menu #menu="matMenu">
+    <mat-nav-list class="menu-sublist">
+        <a mat-list-item [routerLink]="['/edit-info']" [routerLinkActive]="'active-link'">
+            <mat-icon>edit</mat-icon>&nbsp;&nbsp;
+            <span>Chỉnh sửa thông tin</span>
+        </a>
+    </mat-nav-list>
+    <mat-nav-list class="menu-sublist">
+        <a mat-list-item [routerLink]="['/changePass']" [routerLinkActive]="'active-link'">
+            <mat-icon>https</mat-icon>&nbsp;&nbsp;
+            <span>Đổi mật khẩu</span>
+        </a>
+    </mat-nav-list>
+    <mat-nav-list class="menu-sublist">
+        <a mat-list-item [routerLink]="['/feedback']" [routerLinkActive]="'active-link'">
+            <mat-icon>feedback</mat-icon>&nbsp;&nbsp;
+            <span>Đánh giá và phản hồi</span>
+        </a>
+    </mat-nav-list>
+    <mat-nav-list class="menu-sublist">
+        <a mat-list-item href="">
+            <mat-icon>exit_to_app</mat-icon>&nbsp;&nbsp;
+            <span>Đăng xuất</span>
+        </a>
+    </mat-nav-list>
+</mat-menu>
+<!-- <div class="noti-bubble" *ngIf="visible && account.length>0">
     <button mat-button (click)="visible = false" class="button-close">
         <mat-icon>close</mat-icon>
     </button>
     <marquee>Cảm ơn các bạn đã ghé thăm BlogNew! Chúc các bạn một ngày vui vẻ 😍</marquee>
     <div class="bubble-arrow-border"></div>
     <div class="bubble-arrow"></div>
-</div>
+</div> -->

@@ -11,6 +11,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { HeaderRoutingModule } from './header-routing.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [HeaderComponent],
   imports: [
@@ -22,7 +23,8 @@ import { HeaderRoutingModule } from './header-routing.module';
     MatBadgeModule,
     MatListModule,
     HeaderRoutingModule,
-    MatTooltipModule
+    MatTooltipModule,
+    FlexLayoutModule
   ],
   exports: [
     HeaderComponent,

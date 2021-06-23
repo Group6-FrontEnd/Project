@@ -1,31 +1,26 @@
-.tool-bar {
+.container {
     width: 100%;
     height: 800px;
-    padding: 0px 90px 0px 358px;
-    // position: fixed;
-    // left: 55%;
-    // top: 15%;
-    // margin-left: -300px;
+    padding: 12px;
+}
+
+.tool-bar {
+    width: 100%;
 }
 
 .title {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.in-container {
     position: relative;
-    padding-bottom: 50px;
-    padding-top: 60px;
-    left: 250px;
+    .mat-form-field+.mat-form-field {
+        margin-left: 8px;
+    }
 }
 
-.example-container .mat-form-field+.mat-form-field {
-    margin-left: 8px;
-}
-
-.example-container {
-    position: relative;
-    margin-top: 100px;
-    float: left;
-}
-
- :host {
+:host {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -33,45 +28,72 @@
 
 .form {
     min-width: 150px;
-    max-width: 270px;
+    max-width: 600px;
     width: 100%;
+    margin: auto;
+    height: 340px;
+    padding: 0 5px;
+}
+
+.form-inf {
     float: left;
+    width: 50%;
+}
+
+.form-avata {
+    float: right;
 }
 
 .full-width {
     width: 100%;
 }
 
-.avata-text {
-    padding-left: 180px;
-}
-
 .avata-image {
-    padding-left: 200px;
     width: 150px;
     float: left;
+    mat-icon {
+        position: relative;
+        float: left;
+        border: 2px solid black;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        padding-left: 5px;
+        padding-top: 5px;
+        top: -50px;
+        background-color: aliceblue;
+    }
+    img {
+        float: left;
+        width: 150px;
+        border: 2px solid black;
+        border-radius: 50%;
+        height: 150px;
+    }
 }
 
-.avata-image img {
+.avata-imageMd {
+    width: 112px;
     float: left;
-    width: 150px;
-    border: 2px solid black;
-    border-radius: 50%;
-    height: 150px;
-    // text-align: inherit;
-}
-
-.avata-image mat-icon {
-    position: relative;
-    float: left;
-    border: 2px solid black;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    padding-left: 5px;
-    padding-top: 5px;
-    top: -50px;
-    background-color: aliceblue;
+    mat-icon {
+        position: relative;
+        float: left;
+        border: 2px solid black;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        padding-left: 2px;
+        padding-top: 1px;
+        top: -30px;
+        background-color: aliceblue;
+    }
+    img {
+        float: left;
+        width: 112px;
+        border: 2px solid black;
+        border-radius: 50%;
+        height: 112px;
+    }
 }
 
 .menu-sublist a {
@@ -82,12 +104,8 @@
 }
 
 .button-row {
-    position: relative;
-    height: 80px;
-    top: 280px;
-    left: -180px;
-}
-
-.button-row .mat-button-base {
-    margin: 8px 8px 8px 0;
+    text-align: center;
+    .mat-button-base {
+        margin: 8px 8px 8px 0;
+    }
 }

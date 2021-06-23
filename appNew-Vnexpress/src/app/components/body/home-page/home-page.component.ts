@@ -13,21 +13,32 @@ export class HomePageComponent implements OnInit {
     loop: true,
     autoplay: true,
     center: true,
-    dots: false,
     autoHeight: true,
     autoWidth: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: true,
+    navSpeed: 550,
+    margin:20,
+    // navText: ['&#8249', '&#8250;'],
     responsive: {
       0: {
-        items: 1,
+        items: 1 
       },
-      300: {
-        items: 2,
+      400: {
+        items: 2
       },
-      600: {
-        items: 3,
+      767: {
+        items: 2
+      },
+      1024: {
+        items: 3
       }
-    }
+    },
+    nav: false
   }
+  
   link_url = ['https://vnexpress.net/rss/tin-moi-nhat.rss', 'https://vnexpress.net/rss/khoa-hoc.rss']
 
   responseObjectLatestNews: ResponseObject = {

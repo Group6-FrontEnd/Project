@@ -1,36 +1,27 @@
 .tool-bar {
     width: 100%;
     height: 800px;
-    padding: 0px 0px 0px 500px;
+    padding: 12px;
     .title {
         text-align: center;
-        padding-bottom: 50px;
-        padding-top: 60px;
-        float: left;
-        padding-left: 80px;
+        padding: 40px 0;
     }
-    .example-container .mat-form-field+.mat-form-field {
-        margin-left: 8px;
-    }
-    .example-right-align {
-        text-align: right;
-    }
-    input.example-right-align::-webkit-outer-spin-button,
-    input.example-right-align::-webkit-inner-spin-button {
-        display: none;
-    }
-    input.example-right-align {
-        -moz-appearance: textfield;
+    .in-container {
+        .mat-form-field+.mat-form-field {
+            margin-left: 8px;
+        }
     }
     .form {
         min-width: 150px;
         max-width: 400px;
         width: 100%;
+        margin: auto;
     }
     .full-width {
         width: 100%;
     }
     .button-row {
         text-align: center;
+        padding: 40px 0;
     }
 }

@@ -2,19 +2,17 @@
     <div class="title">
         <h1><b>Thông tin tài khoản</b></h1>
     </div>
-    <br>
-    <div class="example-container" class="form">
+    <div class="in-container" class="form">
         <label>
             <h2><b>Mật khẩu hiện tại: </b></h2>
         </label>
-        <div class="example-container">
+        <div class="in-container">
             <mat-form-field appearance="fill" class="full-width">
                 <mat-label>
                     <mat-icon>https</mat-icon>Nhập mật khẩu hiện tại
                 </mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'">
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                    [attr.aria-pressed]="hide">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
             </mat-form-field>
@@ -22,26 +20,24 @@
         <label>
             <h2><b>Mật khẩu mới: </b></h2>
         </label>
-        <div class="example-container">
+        <div class="in-container">
             <mat-form-field appearance="fill" class="full-width">
                 <mat-label>
                     <mat-icon>https</mat-icon> Nhập mật khẩu mới
                 </mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'">
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                    [attr.aria-pressed]="hide">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
             </mat-form-field>
         </div>
-        <div class="example-container">
+        <div class="in-container">
             <mat-form-field appearance="fill" class="full-width">
                 <mat-label>
                     <mat-icon>https</mat-icon> Nhập lại mật khẩu mới
                 </mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'">
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                    [attr.aria-pressed]="hide">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
             </mat-form-field>

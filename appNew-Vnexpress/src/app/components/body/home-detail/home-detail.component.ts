@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ResponseObject } from 'src/app/models/responseObject';
+import { HistoryService } from 'src/app/services/history/history.service';
 import { Rss2jsonService } from 'src/app/services/rss2json/rss2json.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { Rss2jsonService } from 'src/app/services/rss2json/rss2json.service';
 export class HomeDetailComponent implements OnInit {
   view = 'Card';
   sort = 'Date';
-
+  color: string = 'black';
   link_rss = '';
 
   responseObject: ResponseObject = {
@@ -57,7 +58,8 @@ export class HomeDetailComponent implements OnInit {
   }
 
   constructor(private rss2jsonService: Rss2jsonService,
-    private router: Router
+    private router: Router,
+    private historyService: HistoryService
   ) {
     console.log('na:', this.link_rss);
     const navigation = this.router.getCurrentNavigation();
@@ -67,5 +69,18 @@ export class HomeDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.getJson();
+  }
+  clear(id: any) {
+    console.log('Xóa: ' + id.title);
+    const index: number = this.responseObject.items.indexOf(id);
+    if (index !== -1) {
+      this.responseObject.items.splice(index, 1);
+    }
+  }
+
+  read(id: any) {
+    console.log('Đọc: ' + id.title);
+    this.historyService.getRss(id);
+
   }
 }

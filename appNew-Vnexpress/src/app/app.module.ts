@@ -10,7 +10,7 @@ import { EditInforModule } from './components/edit-infor/edit-infor.module';
 import { ChangePassModule } from './components/change-pass/change-pass.module';
 import { FeedbackModule } from './components/feedback/feedback.module';
 import { Error404Module } from './components/error404/error404.module';
-
+import { HistoryModule } from './components/history/history.module';
 import { BodyModule } from './components/body/body.module';
 import { SettingsModule } from './components/settings/settings.module';
 
@@ -44,6 +44,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     BodyModule,
     SettingsModule,
     CarouselModule,
+    HistoryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

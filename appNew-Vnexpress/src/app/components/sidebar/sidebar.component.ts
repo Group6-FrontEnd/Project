@@ -46,13 +46,13 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
-      name: 'Tin đã đọc', link: '', icon: 'bookmark_border',
+      name: 'Tin đã lưu', link: '', icon: 'bookmark_border',
       children: [
         { name: '', link: '', icon: '' }
       ]
     },
     {
-      name: 'Lịch sử', link: '', icon: 'update',
+      name: 'Lịch sử', link: 'history', icon: 'update',
       children: [
         { name: '', link: '', icon: '' }
       ]

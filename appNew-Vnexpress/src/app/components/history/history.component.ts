@@ -10,7 +10,7 @@ import { HistoryService } from 'src/app/services/history/history.service';
 export class HistoryComponent implements OnInit {
   view = 'Card';
   sort = 'Date';
-  history = [{
+  histories = [{
     title: '',
     pubDate: '',
     link: '',
@@ -24,14 +24,13 @@ export class HistoryComponent implements OnInit {
     categories: [
     ]
   }];
-
   constructor(private historyService: HistoryService) {
+
   }
   ngOnInit(): void {
-    this.history.splice(0,1);
+    this.histories.splice(0, 1);
     this.historyService.currentHistory.subscribe(name => {
-      this.history=name;
+      this.histories = name;
     });
   }
-
 }

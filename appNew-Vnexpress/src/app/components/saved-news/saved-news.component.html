@@ -1,9 +1,9 @@
 <div class="tool-bar">
     <div class="title">
-        <p>{{responseObject.feed.title}}</p>
+        <p>Tin đã lưu</p>
     </div>
     <div class="tool">
-        <button class="btn" (click)='getJson()'>
+        <button class="btn">
             <mat-icon>autorenew</mat-icon>
         </button>
         <div ngbDropdown class="d-inline-block">
@@ -47,25 +47,17 @@
         </div>
     </div>
 </div>
-
-<div class='body' *ngIf='responseObject.status === "ok"'>
-    <div *ngFor='let item of responseObject.items' [style.width]="view === 'Card' ? '18rem' : '100%'" class="card">
-        <div class="buttons">
+<div class='body'>
+    <div *ngFor='let item of saves' [style.width]="view === 'Card' ? '18rem' : '100%'" class="card">
+        <div class=" buttons ">
             <div [style.width]="view==='Card' ? '40%' : '20%' " class="buttons-border ">
-                <a class="button " matTooltip="Đánh dấu/Lưu" matTooltipPosition="above" (click)="save(item)">
-                    <mat-icon [style.color]="color_save">turned_in_not</mat-icon>
-                </a>
-                <a class="button " matTooltip="Đã đọc" matTooltipPosition="above" [ngStyle]="{'color': color}">
-                    <mat-icon>done</mat-icon>
-                </a>
                 <a class="button " (click)="clear(item)" matTooltip="Xóa" matTooltipPosition="above">
                     <mat-icon>clear</mat-icon>
                 </a>
             </div>
         </div>
-
-        <div class="content ">
-            <a target="_blank " href="{{item.link}} " [style.width]="view==='Card' ? '' : '15%' " [style.height]="view==='Card' ? '' : '120px' " [style.float]="view==='Card' ? '' : 'left' " (click)="read(item)">
+        <div class="content">
+            <a target="_blank " href="{{item.link}} " [style.width]="view==='Card' ? '' : '15%' " [style.height]="view==='Card' ? '' : '120px' " [style.float]="view==='Card' ? '' : 'left' ">
                 <img [style.height]="view==='Card' ? '' : '120px' " class="card-img-top " src="{{item.thumbnail}} " alt="Card image ">
             </a>
 
@@ -76,7 +68,9 @@
             </div>
         </div>
     </div>
-
-
     <div style="height: 150px; width: 100%; "></div>
+</div>
+
+<div *ngIf='saves.length===0' class="none-history">
+    <h1>Không có tin nào đã lưu</h1>
 </div>

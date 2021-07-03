@@ -13,6 +13,7 @@ import { Error404Module } from './components/error404/error404.module';
 import { HistoryModule } from './components/history/history.module';
 import { BodyModule } from './components/body/body.module';
 import { SettingsModule } from './components/settings/settings.module';
+import { SavedNewsModule } from './components/saved-news/saved-news.module';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { LoginSignModule } from './components/login-sign/login-sign.module';
@@ -44,7 +45,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     BodyModule,
     SettingsModule,
     CarouselModule,
-    HistoryModule
+    HistoryModule,
+    SavedNewsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,6 +7,7 @@ import { Error404Component } from '../error404/error404.component';
 import { FeedbackComponent } from '../feedback/feedback.component';
 import { HistoryComponent } from '../history/history.component';
 import { LoginSignComponent } from '../login-sign/login-sign.component';
+import { SavedNewsComponent } from '../saved-news/saved-news.component';
 import { SettingsComponent } from '../settings/settings.component';
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'feedback', component: FeedbackComponent },
   { path: 'settings', component: SettingsComponent},
   { path: 'history', component: HistoryComponent},
+  { path: 'saved-news', component: SavedNewsComponent},
   { path: '**', component: Error404Component},
 ];
 

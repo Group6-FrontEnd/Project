@@ -11,17 +11,18 @@ export class Rss2jsonService {
   private apiKey = 'gxhkoesz1pmfqon2jcannfe2ledfn0d8cv8ndqwd';
   private orderBy = '';
   private orderDir = '';
-  private count = '';
+  private count = 27;
 
 
   /** GET heroes from the server */
   getJson(rss_url: string): Observable<ResponseObject> {
-    return this.http.get<ResponseObject>(`${this.apiUrl}?rss_url=${rss_url}&api_key=${this.apiKey}`)
+    return this.http.get<ResponseObject>(`${this.apiUrl}?rss_url=${rss_url}&api_key=${this.apiKey}&count=${this.count}`)
       .pipe(
         tap(_ => this.log('get json')),
         catchError(this.handleError<ResponseObject>('getHeroes', this.nul))
       );
   }
+
   /**
  * Handle Http operation that failed.
  * Let the app continue.

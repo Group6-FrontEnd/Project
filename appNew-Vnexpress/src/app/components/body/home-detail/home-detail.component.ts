@@ -11,9 +11,10 @@ import { Rss2jsonService } from 'src/app/services/rss2json/rss2json.service';
 })
 export class HomeDetailComponent implements OnInit {
   view = 'Card';
-  sort = 'Date';
+  sortBy = 'Date';
   color: string = 'black';
   link_rss = '';
+  loadNumber = 1;
 
   responseObject: ResponseObject = {
     status: '',
@@ -43,18 +44,65 @@ export class HomeDetailComponent implements OnInit {
     ]
   };
 
+  responseObjectData: ResponseObject = {
+    status: '',
+    feed: {
+      url: '',
+      title: '',
+      link: '',
+      author: '',
+      description: '',
+      image: '',
+    },
+    items: [
+      {
+        title: '',
+        pubDate: '',
+        link: '',
+        guid: '',
+        author: '',
+        thumbnail: '',
+        description: '',
+        content: '',
+        enclosure: {
+        },
+        categories: [
+        ]
+      }
+    ]
+  };
+
   getJson(): void {
     this.rss2jsonService.getJson(this.link_rss).subscribe(content => {
-      this.responseObject = content;
-      this.responseObject.items.forEach(item => {
+      this.responseObjectData = content;
+      this.responseObjectData.items.forEach(item => {
         item.content = this.getContent(item.content);
       });
-      console.log(this.responseObject.items);
+
+      this.responseObject.status = this.responseObjectData.status;
+      this.responseObject.feed = this.responseObjectData.feed;
+      this.showMore(0, 9);
+
+      console.log(this.responseObjectData.items);
     })
   }
 
   getContent(origin: string): string {
     return origin.substring(origin.lastIndexOf('>') + 1);
+  }
+
+  showMore(start: number, count: number) {
+    let counter = start;
+    let i = 0;
+    while (counter < count && i <= 27) {
+      if (!this.responseObject.items.includes(this.responseObjectData.items[i])) {
+        this.responseObject.items[counter] = this.responseObjectData.items[i];
+        counter++;
+      }
+      i++;
+    }
+    console.log(this.responseObject.items);
+    this.sort(this.sortBy);
   }
 
   constructor(private rss2jsonService: Rss2jsonService,
@@ -70,6 +118,23 @@ export class HomeDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getJson();
   }
+
+  loadMore(): void {
+    this.showMore(9 * this.loadNumber, 9 + 9 * this.loadNumber);
+    this.loadNumber++;
+  }
+
+  sort(target:string): void {
+    if (target === 'Title') {
+      this.responseObject.items = this.responseObject.items.sort((item1, item2) => item1.title.localeCompare(item2.title));
+      this.responseObjectData.items = this.responseObjectData.items.sort((item1, item2) => item1.title.localeCompare(item2.title));
+    } else {
+      this.responseObject.items = this.responseObject.items.sort((item1, item2) => item2.pubDate.localeCompare(item1.pubDate));
+      this.responseObjectData.items = this.responseObjectData.items.sort((item1, item2) => item2.pubDate.localeCompare(item1.pubDate));
+
+    }
+  }
+
   clear(id: any) {
     console.log('Xóa: ' + id.title);
     const index: number = this.responseObject.items.indexOf(id);

@@ -46,7 +46,7 @@ export class SidebarComponent implements OnInit {
       ]
     },
     {
-      name: 'Tin đã lưu', link: '', icon: 'bookmark_border',
+      name: 'Tin đã lưu', link: 'saved-news', icon: 'bookmark_border',
       children: [
         { name: '', link: '', icon: '' }
       ]
@@ -78,6 +78,7 @@ export class SidebarComponent implements OnInit {
       });
   }
   hasChild = (_: number, node: Menu) => !!node.children && node.children.length > 0;
+
   linkUrl(name: any) {
     if (name) {
       this.navigation = { state: name }

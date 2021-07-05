@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ResponseObject } from 'src/app/models/responseObject';
 import { HistoryService } from 'src/app/services/history/history.service';
 import { Rss2jsonService } from 'src/app/services/rss2json/rss2json.service';
+import { SavedNewsService } from 'src/app/services/saved-news/saved-news.service';
 
 @Component({
   selector: 'app-home-detail',
@@ -13,6 +14,8 @@ export class HomeDetailComponent implements OnInit {
   view = 'Card';
   sortBy = 'Date';
   color: string = 'black';
+  color_save: string = 'black';
+  count = 0;
   link_rss = '';
   loadNumber = 1;
 
@@ -107,16 +110,22 @@ export class HomeDetailComponent implements OnInit {
 
   constructor(private rss2jsonService: Rss2jsonService,
     private router: Router,
-    private historyService: HistoryService
+    private historyService: HistoryService,
+    private savedService: SavedNewsService
   ) {
-    console.log('na:', this.link_rss);
-    const navigation = this.router.getCurrentNavigation();
-    this.link_rss = navigation?.extras.state as any;
-    console.log('rssUrl:', this.link_rss);
+
+    this.loadRss();
   }
+
 
   ngOnInit(): void {
     this.getJson();
+
+  }
+  loadRss() {
+    const navigation = this.router.getCurrentNavigation();
+    this.link_rss = navigation?.extras.state as any;
+    console.log('rssUrl:', this.link_rss);
   }
 
   loadMore(): void {
@@ -146,6 +155,15 @@ export class HomeDetailComponent implements OnInit {
   read(id: any) {
     console.log('Đọc: ' + id.title);
     this.historyService.getRss(id);
-
+  }
+  save(id: any) {
+    console.log('Lưu: ' + id.title);
+    this.count++;
+    if (this.count % 2 !== 0) {
+      this.savedService.getRss(id);
+      this.color_save = "red!important";
+    } else {
+      this.color_save = "black!important";
+    }
   }
 }

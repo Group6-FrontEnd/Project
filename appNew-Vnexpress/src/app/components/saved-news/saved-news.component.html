@@ -1,9 +1,9 @@
 <div class="tool-bar">
     <div class="title">
-        <p>{{responseObject.feed.title}}</p>
+        <p>Tin đã lưu</p>
     </div>
     <div class="tool">
-        <button class="btn" (click)='getJson()'>
+        <button class="btn">
             <mat-icon>autorenew</mat-icon>
         </button>
         <div ngbDropdown class="d-inline-block">
@@ -29,41 +29,35 @@
                 <div style="font-weight: 500;">Sort:</div>
                 <div style="font-weight: 300;">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sortCheck" id="date" value="Date" [checked]='sortBy === "Date"' [(ngModel)]='sortBy' (click)='sort("Date")'>
+                        <input class="form-check-input" type="radio" name="sortCheck" id="date" value="Date" [checked]='sort === "Date"' [(ngModel)]='sort'>
                         <label class="form-check-label" for="date">
                             Date
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sortCheck" id="title" value="Title" [checked]='sortBy === "Title"' [(ngModel)]='sortBy' (click)='sort("Title")'>
+                        <input class="form-check-input" type="radio" name="sortCheck" id="title" value="Title" [checked]='sort === "Title"' [(ngModel)]='sort'>
                         <label class="form-check-label" for="title">
                             Title
                         </label>
                     </div>
                 </div>
+                {{view}}
+                <br /> {{sort}}
             </div>
         </div>
     </div>
 </div>
-
-<div class='body' *ngIf='responseObject.status === "ok"'>
-    <div *ngFor='let item of responseObject.items' [style.width]="view === 'Card' ? '18rem' : '100%'" class="card">
-        <div class="buttons">
+<div class='body'>
+    <div *ngFor='let item of saves' [style.width]="view === 'Card' ? '18rem' : '100%'" class="card">
+        <div class=" buttons ">
             <div [style.width]="view==='Card' ? '40%' : '20%' " class="buttons-border ">
-                <a class="button " matTooltip="Đánh dấu/Lưu" matTooltipPosition="above" style="cursor: pointer;" (click)="save(item)">               
-                    <mat-icon [style.color]="item.description === 'saved' ? 'red !important' : 'black !important'">turned_in_not</mat-icon>
-                </a>
-                <a class="button " matTooltip="Đã đọc" matTooltipPosition="above" [ngStyle]="{'color': color}" style="cursor: pointer;">
-                    <mat-icon>done</mat-icon>
-                </a>
-                <a class="button " (click)="clear(item)" matTooltip="Xóa" matTooltipPosition="above" style="cursor: pointer;">
+                <a class="button " (click)="clear(item)" matTooltip="Xóa" matTooltipPosition="above">
                     <mat-icon>clear</mat-icon>
                 </a>
             </div>
         </div>
-
-        <div class="content ">
-            <a target="_blank " href="{{item.link}} " [style.width]="view==='Card' ? '' : '15%' " [style.height]="view==='Card' ? '' : '120px' " [style.float]="view==='Card' ? '' : 'left' " (click)="read(item)">
+        <div class="content">
+            <a target="_blank " href="{{item.link}} " [style.width]="view==='Card' ? '' : '15%' " [style.height]="view==='Card' ? '' : '120px' " [style.float]="view==='Card' ? '' : 'left' ">
                 <img [style.height]="view==='Card' ? '' : '120px' " class="card-img-top " src="{{item.thumbnail}} " alt="Card image ">
             </a>
 
@@ -74,10 +68,9 @@
             </div>
         </div>
     </div>
+    <div style="height: 150px; width: 100%; "></div>
+</div>
 
-    <div style="width: 100%;">
-        <button class="btn btn-secondary d-block m-auto" (click)='loadMore()' *ngIf='loadNumber != 3'>Show more</button>
-    </div>
-
-    <div style="height: 25px; width: 100%; "></div>
+<div *ngIf='saves.length===0' class="none-history">
+    <h1>Không có tin nào đã lưu</h1>
 </div>

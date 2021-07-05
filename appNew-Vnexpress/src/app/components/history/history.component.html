@@ -48,7 +48,7 @@
     </div>
 </div>
 <div class='body'>
-    <div *ngFor='let item of history' [style.width]="view === 'Card' ? '18rem' : '100%'" class="card">
+    <div *ngFor='let item of histories' [style.width]="view === 'Card' ? '18rem' : '100%'" class="card">
         <div class="content">
             <a target="_blank " href="{{item.link}} " [style.width]="view==='Card' ? '' : '15%' " [style.height]="view==='Card' ? '' : '120px' " [style.float]="view==='Card' ? '' : 'left' ">
                 <img [style.height]="view==='Card' ? '' : '120px' " class="card-img-top " src="{{item.thumbnail}} " alt="Card image ">
@@ -64,7 +64,7 @@
     <div style="height: 150px; width: 100%; "></div>
 </div>
 
-<div *ngIf='history.length===0' class="none-history">
+<div *ngIf='histories.length===0' class="none-history">
     <h1>Không có lịch sử nào</h1>
 </div>
 

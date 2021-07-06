@@ -98,14 +98,17 @@ export class HomeDetailComponent implements OnInit {
     let counter = start;
     let i = 0;
     while (counter < count && i <= 27) {
-      if (!this.responseObject.items.includes(this.responseObjectData.items[i])) {
+      if (this.responseObjectData.items[i] !== undefined && !this.responseObject.items.includes(this.responseObjectData.items[i])) {
         this.responseObject.items[counter] = this.responseObjectData.items[i];
         counter++;
       }
       i++;
     }
-    console.log(this.responseObject.items);
+
     this.sort(this.sortBy);
+    this.checkSavedNews();
+
+    console.log(this.responseObject.items);
   }
 
   constructor(private rss2jsonService: Rss2jsonService,
@@ -122,6 +125,7 @@ export class HomeDetailComponent implements OnInit {
     this.getJson();
 
   }
+
   loadRss() {
     const navigation = this.router.getCurrentNavigation();
     this.link_rss = navigation?.extras.state as any;
@@ -129,11 +133,11 @@ export class HomeDetailComponent implements OnInit {
   }
 
   loadMore(): void {
-    this.showMore(9 * this.loadNumber, 9 + 9 * this.loadNumber);
+    this.showMore(this.responseObject.items.length, 9 + 9 * this.loadNumber);
     this.loadNumber++;
   }
 
-  sort(target:string): void {
+  sort(target: string): void {
     if (target === 'Title') {
       this.responseObject.items = this.responseObject.items.sort((item1, item2) => item1.title.localeCompare(item2.title));
       this.responseObjectData.items = this.responseObjectData.items.sort((item1, item2) => item1.title.localeCompare(item2.title));
@@ -147,8 +151,10 @@ export class HomeDetailComponent implements OnInit {
   clear(id: any) {
     console.log('Xóa: ' + id.title);
     const index: number = this.responseObject.items.indexOf(id);
+    const indexData: number = this.responseObjectData.items.indexOf(id);
     if (index !== -1) {
       this.responseObject.items.splice(index, 1);
+      this.responseObjectData.items.splice(indexData, 1);
     }
   }
 
@@ -156,14 +162,34 @@ export class HomeDetailComponent implements OnInit {
     console.log('Đọc: ' + id.title);
     this.historyService.getRss(id);
   }
+
   save(id: any) {
-    console.log('Lưu: ' + id.title);
-    this.count++;
-    if (this.count % 2 !== 0) {
-      this.savedService.getRss(id);
-      this.color_save = "red!important";
-    } else {
-      this.color_save = "black!important";
+    let index = this.responseObject.items.indexOf(id);
+    let indexData = this.responseObjectData.items.indexOf(id);
+    
+    if (index != -1) {
+      if (id.description !== 'saved') {
+        this.responseObject.items[index].description = 'saved';
+        this.responseObjectData.items[indexData].description = 'saved';
+        this.savedService.getRss(id);
+      } else {
+        this.savedService.removeRss(id);
+        this.responseObject.items[index].description = '';
+        this.responseObjectData.items[indexData].description = '';
+      }
     }
+  }
+
+  checkSavedNews() {
+    this.responseObject.items.forEach(item => {
+      if (this.savedService.check(item)) {
+        item.description='saved';
+      }
+    })
+    this.responseObjectData.items.forEach(item => {
+      if (this.savedService.check(item)) {
+        item.description='saved';
+      }
+    })
   }
 }

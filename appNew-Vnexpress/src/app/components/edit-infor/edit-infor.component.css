@@ -1,0 +1,129 @@
+.container {
+  width: 100%;
+  height: 800px;
+  padding: 12px;
+}
+
+.tool-bar {
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.in-container {
+  position: relative;
+}
+
+.in-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+:host {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.form {
+  min-width: 150px;
+  max-width: 600px;
+  width: 100%;
+  margin: auto;
+  height: 340px;
+  padding: 0 5px;
+}
+
+.form-inf {
+  float: left;
+  width: 50%;
+}
+
+.form-avata {
+  float: right;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.avata-image {
+  width: 150px;
+  float: left;
+}
+
+.avata-image mat-icon {
+  position: relative;
+  float: left;
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding-left: 5px;
+  padding-top: 5px;
+  top: -50px;
+  background-color: aliceblue;
+}
+
+.avata-image img {
+  float: left;
+  width: 150px;
+  border: 2px solid black;
+  border-radius: 50%;
+  height: 150px;
+}
+
+.avata-imageMd {
+  width: 112px;
+  float: left;
+}
+
+.avata-imageMd mat-icon {
+  position: relative;
+  float: left;
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding-left: 2px;
+  padding-top: 1px;
+  top: -30px;
+  background-color: aliceblue;
+}
+
+.avata-imageMd img {
+  float: left;
+  width: 112px;
+  border: 2px solid black;
+  border-radius: 50%;
+  height: 112px;
+}
+
+.menu-sublist a {
+  margin: 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding-left: 18px;
+}
+
+.button-row {
+  text-align: center;
+}
+
+.button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+/*# sourceMappingURL=edit-infor.component.css.map */

@@ -1,0 +1,33 @@
+.modal {
+  position: fixed;
+  top: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#F5EDED), to(#FAAEAE));
+  background-image: linear-gradient(#F5EDED, #FAAEAE);
+}
+
+.modal .modal-overlay {
+  position: absolute;
+  width: 600px;
+  height: 400px;
+  background-image: url("./assets/404.png");
+  top: 22px;
+  border: none;
+}
+
+.modal .button-row {
+  position: absolute;
+  text-align: center;
+  top: 500px;
+  width: 100%;
+}
+
+.image {
+  min-width: 600px;
+  max-width: 290px;
+  width: 100%;
+  margin: auto;
+}
+/*# sourceMappingURL=error404.component.css.map */

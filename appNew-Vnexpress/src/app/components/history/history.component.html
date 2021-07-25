@@ -29,20 +29,18 @@
                 <div style="font-weight: 500;">Sort:</div>
                 <div style="font-weight: 300;">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sortCheck" id="date" value="Date" [checked]='sort === "Date"' [(ngModel)]='sort'>
+                        <input class="form-check-input" type="radio" name="sortCheck" id="date" value="Date" [checked]='sortBy === "Date"' [(ngModel)]='sortBy' (click)='sort("Date")'>
                         <label class="form-check-label" for="date">
                             Date
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sortCheck" id="title" value="Title" [checked]='sort === "Title"' [(ngModel)]='sort'>
+                        <input class="form-check-input" type="radio" name="sortCheck" id="title" value="Title" [checked]='sortBy === "Title"' [(ngModel)]='sortBy' (click)='sort("Title")'>
                         <label class="form-check-label" for="title">
                             Title
                         </label>
                     </div>
                 </div>
-                {{view}}
-                <br /> {{sort}}
             </div>
         </div>
     </div>

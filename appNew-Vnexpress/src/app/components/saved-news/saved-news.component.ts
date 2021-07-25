@@ -10,7 +10,7 @@ import { SavedNewsService } from 'src/app/services/saved-news/saved-news.service
 export class SavedNewsComponent implements OnInit {
 
   view = 'Card';
-  sort = 'Date';
+  sortBy = 'Date';
   color: string = 'black';
   saves = [{
     title: '',
@@ -41,6 +41,14 @@ export class SavedNewsComponent implements OnInit {
     const index: number = this.saves.indexOf(id);
     if (index !== -1) {
       this.saves.splice(index, 1);
+    }
+  }
+
+  sort(target: string): void {
+    if (target === 'Title') {
+      this.saves = this.saves.sort((item1, item2) => item1.title.localeCompare(item2.title));
+    } else {
+      this.saves = this.saves.sort((item1, item2) => item2.pubDate.localeCompare(item1.pubDate));
     }
   }
 }

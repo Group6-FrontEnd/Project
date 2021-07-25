@@ -9,7 +9,7 @@ import { HistoryService } from 'src/app/services/history/history.service';
 })
 export class HistoryComponent implements OnInit {
   view = 'Card';
-  sort = 'Date';
+  sortBy = 'Date';
   histories = [{
     title: '',
     pubDate: '',
@@ -32,5 +32,12 @@ export class HistoryComponent implements OnInit {
     this.historyService.currentHistory.subscribe(name => {
       this.histories = name;
     });
+  }
+  sort(target: string): void {
+    if (target === 'Title') {
+      this.histories = this.histories.sort((item1, item2) => item1.title.localeCompare(item2.title));
+    } else {
+      this.histories = this.histories.sort((item1, item2) => item2.pubDate.localeCompare(item1.pubDate));
+    }
   }
 }

@@ -144,7 +144,6 @@ export class HomeDetailComponent implements OnInit {
     } else {
       this.responseObject.items = this.responseObject.items.sort((item1, item2) => item2.pubDate.localeCompare(item1.pubDate));
       this.responseObjectData.items = this.responseObjectData.items.sort((item1, item2) => item2.pubDate.localeCompare(item1.pubDate));
-
     }
   }
 

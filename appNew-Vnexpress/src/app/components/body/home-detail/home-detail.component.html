@@ -53,7 +53,7 @@
                 <a class="button " matTooltip="Đánh dấu/Lưu" matTooltipPosition="above" style="cursor: pointer;" (click)="save(item)">               
                     <mat-icon [style.color]="item.description === 'saved' ? 'red !important' : 'black !important'">turned_in_not</mat-icon>
                 </a>
-                <a class="button " matTooltip="Đã đọc" matTooltipPosition="above" [ngStyle]="{'color': color}" style="cursor: pointer;">
+                <a class="button " matTooltip="Đã đọc" matTooltipPosition="above" [ngStyle]="{'color': color}" style="cursor: pointer;" (click)='read(item)'>
                     <mat-icon>done</mat-icon>
                 </a>
                 <a class="button " (click)="clear(item)" matTooltip="Xóa" matTooltipPosition="above" style="cursor: pointer;">

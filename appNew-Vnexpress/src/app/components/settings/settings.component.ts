@@ -22,6 +22,4 @@ export class SettingsComponent implements OnInit {
   discoloration(theme: string) {
     localStorage.discoloration('theme-color',theme);
     this.themeColor = localStorage.getItem('theme-color');
-  }
-}
-  
+  }}

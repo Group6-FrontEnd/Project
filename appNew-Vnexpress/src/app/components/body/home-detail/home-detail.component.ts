@@ -17,7 +17,7 @@ export class HomeDetailComponent implements OnInit {
   color_save: string = 'black';
   count = 0;
   link_rss = '';
-  loadNumber = 1;
+  loadNumber = 0;
 
   responseObject: ResponseObject = {
     status: '',
@@ -82,9 +82,13 @@ export class HomeDetailComponent implements OnInit {
         item.content = this.getContent(item.content);
       });
 
+      this.sort(this.sortBy);
+
+      this.responseObject.items.splice(0);
+
       this.responseObject.status = this.responseObjectData.status;
       this.responseObject.feed = this.responseObjectData.feed;
-      this.showMore(0, 9);
+      this.loadMore();
 
       console.log(this.responseObjectData.items);
     })
@@ -134,7 +138,9 @@ export class HomeDetailComponent implements OnInit {
 
   loadMore(): void {
     this.showMore(this.responseObject.items.length, 9 + 9 * this.loadNumber);
-    this.loadNumber++;
+    if (this.loadNumber < 3) {
+      this.loadNumber++;
+    }
   }
 
   sort(target: string): void {
@@ -165,7 +171,7 @@ export class HomeDetailComponent implements OnInit {
   save(id: any) {
     let index = this.responseObject.items.indexOf(id);
     let indexData = this.responseObjectData.items.indexOf(id);
-    
+
     if (index != -1) {
       if (id.description !== 'saved') {
         this.responseObject.items[index].description = 'saved';
@@ -182,12 +188,12 @@ export class HomeDetailComponent implements OnInit {
   checkSavedNews() {
     this.responseObject.items.forEach(item => {
       if (this.savedService.check(item)) {
-        item.description='saved';
+        item.description = 'saved';
       }
     })
     this.responseObjectData.items.forEach(item => {
       if (this.savedService.check(item)) {
-        item.description='saved';
+        item.description = 'saved';
       }
     })
   }

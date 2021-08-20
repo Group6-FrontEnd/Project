@@ -2,7 +2,7 @@
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
         <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle class="list">
             <mat-nav-list class="menu-sublist">
-                <a mat-list-item (click)="linkUrl(node?.url)" class="list">
+                <a mat-list-item (click)="linkUrl(node?.url)" class="list" routerLink="{{node.link}}" routerLinkActive="active">
                     <span class="sublabel" [@labelAnimation]="sidebarState ">{{ node?.name }} </span>
                 </a>
             </mat-nav-list>

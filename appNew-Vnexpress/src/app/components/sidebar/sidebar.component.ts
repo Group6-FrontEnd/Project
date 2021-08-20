@@ -27,8 +27,8 @@ export class SidebarComponent implements OnInit {
     {
       name: 'Trang chủ', link: 'home-page', icon: 'home', url: '',
       children: [
-        { name: 'Thời sự', link: 'home-detail', icon: '', url: 'https://vnexpress.net/rss/thoi-su.rss' },
-        { name: 'Khoa học', link: 'home-detail', icon: '', url: 'https://vnexpress.net/rss/khoa-hoc.rss' },
+        { name: 'Thời sự', link: 'home-detail/thoi-su', icon: '', url: 'https://vnexpress.net/rss/thoi-su.rss' },
+        { name: 'Khoa học', link: 'home-detail/khoa-hoc', icon: '', url: 'https://vnexpress.net/rss/khoa-hoc.rss' },
         { name: 'Kinh doanh', link: 'home-detail', icon: '', url: 'https://vnexpress.net/rss/kinh-doanh.rss' },
         { name: 'Giải trí', link: 'home-detail', icon: '', url: 'https://vnexpress.net/rss/giai-tri.rss' },
         { name: 'Thể thao', link: 'home-detail', icon: '', url: 'https://vnexpress.net/rss/the-thao.rss' },

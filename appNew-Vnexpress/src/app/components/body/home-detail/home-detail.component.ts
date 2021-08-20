@@ -110,6 +110,7 @@ export class HomeDetailComponent implements OnInit {
     }
 
     this.sort(this.sortBy);
+    this.checkReadNews();
     this.checkSavedNews();
 
     console.log(this.responseObject.items);
@@ -165,7 +166,28 @@ export class HomeDetailComponent implements OnInit {
 
   read(id: any) {
     console.log('Đọc: ' + id.title);
-    this.historyService.getRss(id);
+    let index = this.responseObject.items.indexOf(id);
+    let indexData = this.responseObjectData.items.indexOf(id);
+
+    if (index != -1) {
+      if (id.description !== 'read') {
+        this.responseObject.items[index].description = 'read';
+        this.responseObjectData.items[indexData].description = 'read';
+        this.historyService.getRss(id);
+      } 
+    }
+  }
+  checkReadNews() {
+    this.responseObject.items.forEach(item => {
+      if (this.historyService.check(item)) {
+        item.description = 'read';
+      }
+    })
+    this.responseObjectData.items.forEach(item => {
+      if (this.historyService.check(item)) {
+        item.description = 'read';
+      }
+    })
   }
 
   save(id: any) {

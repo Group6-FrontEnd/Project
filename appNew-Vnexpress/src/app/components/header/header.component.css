@@ -1,0 +1,88 @@
+.header {
+  background-color: #f3ebeb;
+  color: black;
+}
+
+.vnexpress {
+  position: relative;
+  font-size: 12px;
+  padding: 0px;
+  font-weight: lighter;
+  top: -13px;
+}
+
+.title {
+  padding-top: 30px;
+  padding-left: 2px;
+}
+
+.title h1 {
+  font-size: 30px;
+}
+
+.header-right {
+  padding-right: 10px;
+}
+
+.noti {
+  border: none;
+  background-color: transparent;
+  position: relative;
+  top: 4px;
+}
+
+.spacer {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.seach {
+  border-radius: 20px;
+  position: relative;
+  left: 35px;
+  height: 25px;
+  width: 250px;
+  top: 3px;
+}
+
+.avata-imageMd, .avata-image {
+  width: 40px;
+  height: 40px;
+}
+
+.avata-imageMd img, .avata-image img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid black;
+  font-size: 10px;
+}
+
+.avata-image {
+  float: left;
+}
+
+:focus-visible {
+  outline: none;
+}
+
+.menu-sublist a {
+  margin: 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 0;
+}
+
+.example-button {
+  margin-top: 16px;
+}
+
+.example-tooltip-red {
+  background: #b71c1c;
+}
+/*# sourceMappingURL=header.component.css.map */

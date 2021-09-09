@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="tool-bar">
+        <div class="title">
+            <h1 mat-card-title><b>Thông tin tài khoản</b></h1>
+        </div>
+    </div>
+    <div class="form">
+        <div class="in-container">
+            <div class="form-inf">
+                <label>
+                    <h2><b>Tên của bạn: </b></h2>
+                </label>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Tên</mat-label>
+                    <input matInput #message maxlength="256" [formControl]="name" [(ngModel)]="account[0].name">
+                    <mat-error *ngIf="name.invalid">{{getErrorMessageName()}}</mat-error>
+                    <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+                </mat-form-field>
+                <label>
+                    <h2><b>Email: </b></h2>
+                </label>
+                <p>Mọi thông tin liên lạc sẽ gửi vào địa chỉ này</p>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Email: abc@gmail.com</mat-label>
+                    <input matInput [formControl]="email" required #emails maxlength="256" [(ngModel)]="account[0].email">
+                    <mat-error *ngIf="email.invalid">{{getErrorMessageEmail()}}</mat-error>
+                    <mat-hint align="end">{{emails.value.length}} / 256</mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="form-avata">
+                <label class="avata-text">
+                    <h2><b>Ảnh đại diện: </b></h2>
+                </label>
+                <br>
+                <div class="avata-image" fxShow.lt-md="false" fxShow.gt-sm="true">
+                    <img [src]="account[0].image" alt="avata">
+                    <mat-icon [matMenuTriggerFor]="menu">edit</mat-icon>
+                </div>
+                <div class="avata-imageMd" fxShow.lt-md="true" fxShow.gt-sm="false">
+                    <img [src]="account[0].image" alt="avata">
+                    <mat-icon [matMenuTriggerFor]="menu">edit</mat-icon>
+                </div>
+            </div>
+        </div>
+
+        <mat-menu #menu="matMenu">
+            <mat-nav-list class="menu-sublist">
+                <a mat-list-ite>
+                    <label class="btn btn-default btn-file">Tải ảnh lên...
+                        <input type="file" (change)="onSelectFile($event)" style="display: none;">
+                    </label>
+                </a>
+            </mat-nav-list>
+            <mat-nav-list class="menu-sublist">
+                <a mat-list-ite>
+                    <button type="button" class="btn btn-sm btn-default" (click)="clearFile()">&nbsp;Gỡ bỏ hình</button>
+                </a>
+            </mat-nav-list>
+        </mat-menu>
+
+    </div>
+    <div class="button-row">
+        <a [routerLink]="['/home-page']" [routerLinkActive]="'active-link'">
+            <button mat-raised-button color="warn">Lưu thay đổi</button>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,117 @@
+body {
+    height: calc(100vh - 64px);
+}
+
+
+.tool-bar {
+    width: 100%;
+    padding: 20px 40px 0px 40px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    .title {
+        p {
+            font-size: 24px;
+            font-weight: 500;
+        }
+    }
+    .tool {
+        a {
+            text-decoration: none;
+            color: black;
+            padding: 5px;
+            margin: 10px;
+        }
+        .tool-panel {
+            border-radius: 5px;
+            background-color: rgb(253, 208, 215);
+            padding: 15px;
+            div {
+                margin: 5px;
+            }
+        }
+    }
+}
+
+.body {
+    width: 100%;
+    overflow: auto !important;
+    max-height: calc(100vh - 65px - 64px) !important;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 0px 20px;
+    .card {
+        width: 18rem;
+        // width: 100%; //
+        margin: 20px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(0, 0, 0, .125);
+        border-radius: .25rem;
+        .buttons {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-end;
+            .buttons-border {
+                width: 40%;
+                // width: 20%; //
+                border: 1px solid rgba(0, 0, 0, .125);
+                border-radius: 8px;
+                margin: 5px;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: space-around;
+                .button {
+                    text-decoration: none;
+                    // color: black;
+                    height: 30px;
+                    width: 30px;
+                    padding: 5px;
+                }
+            }
+        }
+        a {
+            // width: 15%; //
+            // height: 120px; //
+            // float: left; //
+            img.card-img-top {
+                width: 100%;
+            }
+        }
+        .card-body {
+            // width: 85%; // 
+            // float: right; //
+            // padding: 0px 10px 0px 10px; //
+            .card-title {
+                font-size: 16px;
+                font-weight: 500;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.btn:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+.click {
+    background-color: red;
+}

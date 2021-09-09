@@ -1,0 +1,31 @@
+.tool-bar {
+  width: 100%;
+  height: 800px;
+  padding: 12px;
+}
+
+.tool-bar .title {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.tool-bar .in-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.tool-bar .form {
+  min-width: 150px;
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+}
+
+.tool-bar .full-width {
+  width: 100%;
+}
+
+.tool-bar .button-row {
+  text-align: center;
+  padding: 40px 0;
+}
+/*# sourceMappingURL=change-pass.component.css.map */

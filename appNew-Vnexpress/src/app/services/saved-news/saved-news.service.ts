@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SavedNewsService {
 
-  public responseObject =
+  public responseObjectSave =
     [{
       title: '',
       pubDate: '',
@@ -22,11 +22,11 @@ export class SavedNewsService {
       ]
     }];
 
-  private savedSource = new BehaviorSubject(this.responseObject);
+  private savedSource = new BehaviorSubject(this.responseObjectSave);
   currentSaved = this.savedSource.asObservable();
   
   constructor() {
-    this.responseObject.splice(0, 1);
+    this.responseObjectSave.splice(0, 1);
   }
 
   changeMessage(name: any) {
@@ -34,16 +34,16 @@ export class SavedNewsService {
   }
 
   getRss(name: any) {
-    this.responseObject.push(name);
+    this.responseObjectSave.push(name);
     console.log('luu', name.title);
-    return this.responseObject;
+    return this.responseObjectSave;
   }
 
   removeRss(checkItem: any) {
-    for (let index = 0; index < this.responseObject.length; index++) {
-      let savedItem = this.responseObject[index];
+    for (let index = 0; index < this.responseObjectSave.length; index++) {
+      let savedItem = this.responseObjectSave[index];
       if (savedItem.title === checkItem.title && savedItem.pubDate === checkItem.pubDate && savedItem.content === checkItem.content && savedItem.link === checkItem.link) {
-        this.responseObject.splice(index, 1);
+        this.responseObjectSave.splice(index, 1);
       }
     }
     console.log('khong luu', checkItem.title);
@@ -51,7 +51,7 @@ export class SavedNewsService {
 
   check(checkItem: any): boolean {
     let result = false;
-    this.responseObject.forEach(savedItem => {
+    this.responseObjectSave.forEach(savedItem => {
       if (savedItem.title === checkItem.title && savedItem.pubDate === checkItem.pubDate && savedItem.content === checkItem.content && savedItem.link === checkItem.link) {
         result = true;
       }

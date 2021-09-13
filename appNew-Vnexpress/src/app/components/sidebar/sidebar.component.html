@@ -2,8 +2,8 @@
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
         <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle class="list">
             <mat-nav-list class="menu-sublist">
-                <a mat-list-item (click)="linkUrl(node?.url)" class="list" routerLink="{{node.link}}" routerLinkActive="active">
-                    <span class="sublabel" [@labelAnimation]="sidebarState ">{{ node?.name }} </span>
+                <a mat-list-item class="list" (click)="linkUrl(node?.url)">
+                    <span class="sublabel button" [@labelAnimation]="sidebarState ">{{ node?.name }} </span>
                 </a>
             </mat-nav-list>
         </mat-tree-node>
@@ -14,16 +14,21 @@
                         <mat-icon class="icon" [@iconAnimation]="sidebarState ">{{node?.icon}}</mat-icon>
                         <span class="label" [@labelAnimation]="sidebarState ">{{ node?.name }} </span>
                     </a>
-                    <button mat-icon-button matTreeNodeToggle *ngIf="node.name==='Trang chủ'" class="button">
+                    <button mat-icon-button matTreeNodeToggle
+                        *ngIf="node.name==='Trang chủ' && this.sidebarState === 'open'" class="button">
                         <mat-icon [@labelAnimation]="sidebarState">
                             {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
                         </mat-icon>
                     </button>
                 </button>
             </mat-nav-list>
-            <div [class.example-tree-invisible]="!treeControl.isExpanded(node) " role="group ">
-                <ng-container matTreeNodeOutlet></ng-container>
-            </div>
+            <div *ngIf="this.sidebarState === 'open'; then thenOpen else elseOpen"></div>
+            <ng-template #thenOpen>
+                <div [class.example-tree-invisible]="!treeControl.isExpanded(node) " role="group ">
+                    <ng-container matTreeNodeOutlet></ng-container>
+                </div>
+            </ng-template>
+            <ng-template #elseOpen></ng-template>
         </mat-nested-tree-node>
     </mat-tree>
 </div>

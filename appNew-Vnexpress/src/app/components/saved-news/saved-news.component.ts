@@ -34,6 +34,7 @@ export class SavedNewsComponent implements OnInit {
     this.savedService.currentSaved.subscribe(name => {
       this.saves=name;
     });
+    console.log('Luuuuuuu: ' +  this.saves);
   }
 
   clear(id: any) {

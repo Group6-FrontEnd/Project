@@ -13,12 +13,12 @@ import { HistoryComponent } from '../history/history.component';
 const routes: Routes = [
   { path: 'login', component: LoginSignComponent },
   { path: 'editInfor', component: EditInforComponent },
-  { path: 'home-detail/:id', component: HomeDetailComponent },
   { path: 'home-page', component: HomePageComponent },
+  { path: 'home-detail/:id', component: HomeDetailComponent },
   { path: 'changePass', component: ChangePassComponent },
-  { path: 'settings', component: SettingsComponent},
-  { path: 'history', component: HistoryComponent},
-  { path: '**', component: Error404Component},
+  { path: 'settings', component: SettingsComponent },
+  { path: 'history', component: HistoryComponent },
+  { path: '**', component: Error404Component },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],

@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { Menu } from 'src/app/models/left-menu';
 import { ResponseObject } from 'src/app/models/responseObject';
 import { HistoryService } from 'src/app/services/history/history.service';
 import { Rss2jsonService } from 'src/app/services/rss2json/rss2json.service';
 import { SavedNewsService } from 'src/app/services/saved-news/saved-news.service';
-import { SidebarService } from 'src/app/services/sidebar/sidebar.service';
 
 @Component({
   selector: 'app-home-detail',
@@ -17,9 +13,6 @@ import { SidebarService } from 'src/app/services/sidebar/sidebar.service';
 export class HomeDetailComponent implements OnInit {
   view = 'Card';
   sortBy = 'Date';
-  color: string = 'black';
-  color_save: string = 'black';
-  count = 0;
   link_rss ='';
   loadNumber = 0;
 
@@ -80,7 +73,6 @@ export class HomeDetailComponent implements OnInit {
   };
 
   getJson(): void {
-  
     this.rss2jsonService.getJson(this.link_rss).subscribe(content => {
       this.responseObjectData = content;
       this.responseObjectData.items.forEach(item => {
@@ -123,10 +115,8 @@ export class HomeDetailComponent implements OnInit {
 
   constructor(private rss2jsonService: Rss2jsonService,
     private router: Router,
-    private route: ActivatedRoute,
     private historyService: HistoryService,
-    private savedService: SavedNewsService,
-    private sidebarService: SidebarService
+    private savedService: SavedNewsService
   ) {
     this.loadRss();
   
@@ -134,32 +124,15 @@ export class HomeDetailComponent implements OnInit {
 
  
   
-  // menu:Menu | undefined;
   ngOnInit(): void {
    this.getJson();
   }
  
   loadRss() {
-    // this.route.snapshot.paramMap.get('name');
     const navigation = this.router.getCurrentNavigation();
 
     this.link_rss = navigation?.extras.state as any;
     console.log('rssUrl:', this.link_rss);
-
-    // this.link.splice(0,1);
-    // this.sidebarService.currentSaved.subscribe(name => {
-    //   this.link[0]=name;
-    //   console.log('dddd:', this.link);
-    // });
-    
-  //   this.route.paramMap.subscribe(params => { 
-  //     console.log(params);
-  //      this.link_rss = params.get('id'); 
-  //      let menus=this.sidebarService.getSidebars();
-  //      this.menu=menus.find(p => p.url==this.link_rss);   
-      
-  //  });
-  //  console.log("ssss",this.link_rss); 
   }
 
   loadMore(): void {

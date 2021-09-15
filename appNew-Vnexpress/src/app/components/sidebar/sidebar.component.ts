@@ -77,17 +77,13 @@ export class SidebarComponent implements OnInit {
       subscribe((newState: string) => {
         this.sidebarState = newState;
       });
-      // this.menus=this.sidebarService.getSidebars();
   }
   hasChild = (_: number, node: Menu) => !!node.children && node.children.length > 0;
-
-  linkUrl(name: any) {
+  linkUrl(name: any) {   
     if (name) {
       this.navigation = { state: name}
       this.router.navigateByUrl('/home-detail/' + name.substring(26), this.navigation);
       console.log('navigation', this.navigation);
-      // this.router.navigate(['home-page']);
     }
-   
   }
 }

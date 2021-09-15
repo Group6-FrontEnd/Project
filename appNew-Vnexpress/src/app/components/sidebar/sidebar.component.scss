@@ -48,11 +48,11 @@
     background-color: transparent;
 }
 
-.example-tree .mat-nested-tree-node div[role=group] {
+.example-tree .mat-nested-tree-node div[role="group"] {
     padding-left: 44px;
 }
 
-.example-tree div[role=group]>.mat-tree-node {
+.example-tree div[role="group"]>.mat-tree-node {
     padding-left: 44px;
 }
 
@@ -64,6 +64,15 @@
     border: none;
     background-color: transparent;
     &:hover {
-        font-size: 1.37em;
+        font-size: 1.07em;
     }
+}
+
+a.active {
+    font-weight: bold;
+    font-size: 1.20em;
+}
+
+.mat-list-item:focus {
+    background-color: #c50808;
 }

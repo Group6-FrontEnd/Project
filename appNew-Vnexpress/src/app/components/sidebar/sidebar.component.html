@@ -1,8 +1,8 @@
 <div class="sidebar_menu" [@onSideNavChange]="sidebarState">
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
         <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle class="list">
-            <mat-nav-list class="menu-sublist">
-                <a mat-list-item class="list" (click)="linkUrl(node?.url)">
+            <mat-nav-list class="menu-sublist" (click)="linkUrl(node?.url)">
+                <a mat-list-item class="list">
                     <span class="sublabel button" [@labelAnimation]="sidebarState ">{{ node?.name }} </span>
                 </a>
             </mat-nav-list>

@@ -9,11 +9,8 @@ import { MatListModule } from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatMenuModule } from '@angular/material/menu';
-import {MatRadioModule} from '@angular/material/radio';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
-
-
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 @NgModule({
@@ -28,7 +25,6 @@ import { FormsModule } from '@angular/forms';
     MatMenuModule,
     SidebarRoutingModule,
     FlexLayoutModule,
-    MatRadioModule,
     ReactiveFormsModule,
     FormsModule
   ],

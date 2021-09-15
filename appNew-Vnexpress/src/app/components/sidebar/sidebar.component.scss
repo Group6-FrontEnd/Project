@@ -68,11 +68,8 @@
     }
 }
 
-a.active {
+a.active,
+.mat-list-item:focus {
     font-weight: bold;
     font-size: 1.20em;
-}
-
-.mat-list-item:focus {
-    background-color: #c50808;
 }

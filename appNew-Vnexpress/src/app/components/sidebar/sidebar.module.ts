@@ -9,8 +9,13 @@ import { MatListModule } from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatRadioModule} from '@angular/material/radio';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [SidebarComponent],
   imports: [
@@ -22,7 +27,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatTreeModule,
     MatMenuModule,
     SidebarRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatRadioModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     SidebarComponent,

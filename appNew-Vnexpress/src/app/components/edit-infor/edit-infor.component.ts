@@ -29,7 +29,7 @@ export class EditInforComponent implements OnInit {
     if (this.name.hasError('required')) {
       return 'Vui lòng nhập tên!';
     }
-    return this.email.hasError('name') ? 'tên không hợp lệ' : '';
+    return this.name.hasError('name') ? 'tên không hợp lệ' : '';
   }
 
   onSelectFile(event: any) {

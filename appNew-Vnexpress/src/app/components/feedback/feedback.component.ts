@@ -11,7 +11,5 @@ export class FeedbackComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  send() {
-    alert("Đã gửi thành công");
-  }
+  
 }

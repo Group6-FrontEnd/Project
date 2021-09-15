@@ -21,7 +21,6 @@ export class HomePageComponent implements OnInit {
     dots: true,
     navSpeed: 550,
     margin:20,
-    // navText: ['&#8249', '&#8250;'],
     responsive: {
       0: {
         items: 1 

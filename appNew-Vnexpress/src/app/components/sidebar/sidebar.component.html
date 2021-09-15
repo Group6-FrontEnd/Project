@@ -1,10 +1,12 @@
 <div class="sidebar_menu" [@onSideNavChange]="sidebarState">
     <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
         <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle class="list">
-            <mat-nav-list class="menu-sublist">
-                <a mat-list-item class="list" (click)="linkUrl(node?.url)">
-                    <span class="sublabel button" [@labelAnimation]="sidebarState ">{{ node?.name }} </span>
-                </a>
+            <mat-nav-list class="menu-sublist" (click)="linkUrl(node?.url)">
+                <button mat-list-item class="button">
+                    <a class="list">
+                        <span class="sublabel button" [@labelAnimation]="sidebarState ">{{ node?.name }} </span>
+                    </a>
+                </button>
             </mat-nav-list>
         </mat-tree-node>
         <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild ">

@@ -76,6 +76,7 @@ export class HomeDetailComponent implements OnInit {
     this.rss2jsonService.getJson(this.link_rss).subscribe(content => {
       this.responseObjectData = content;
       this.responseObjectData.items.forEach(item => {
+        item.description = '';
         item.content = this.getContent(item.content);
       });
 
@@ -107,8 +108,8 @@ export class HomeDetailComponent implements OnInit {
     }
 
     this.sort(this.sortBy);
-    // this.checkReadNews();
-    // this.checkSavedNews();
+    this.checkReadNews();
+    this.checkSavedNews();
 
     console.log(this.responseObject.items);
   }
@@ -118,22 +119,19 @@ export class HomeDetailComponent implements OnInit {
     private historyService: HistoryService,
     private savedService: SavedNewsService
   ) {
-    this.loadRss();
-
   }
 
 
 
   ngOnInit(): void {
+    if (this.link_rss == undefined || this.link_rss == '') {
+      const url:string = this.router.url;
+      this.link_rss = 'https://vnexpress.net/rss' + url.substring(url.lastIndexOf('/'));
+    }
     this.getJson();
+    console.log("page-detail init")
   }
 
-  loadRss() {
-    const navigation = this.router.getCurrentNavigation();
-
-    this.link_rss = navigation?.extras.state as any;
-    console.log('rssUrl:', this.link_rss);
-  }
 
   loadMore(): void {
     this.showMore(this.responseObject.items.length, 9 + 9 * this.loadNumber);

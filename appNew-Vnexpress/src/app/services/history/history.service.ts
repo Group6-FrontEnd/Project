@@ -45,4 +45,13 @@ export class HistoryService {
     });
     return result;
   }
+  removeRss(checkItem: any) {
+    for (let index = 0; index < this.histories.length; index++) {
+      let savedItem = this.histories[index];
+      if (savedItem.title === checkItem.title && savedItem.pubDate === checkItem.pubDate && savedItem.content === checkItem.content && savedItem.link === checkItem.link) {
+        this.histories.splice(index, 1);
+      }
+    }
+    console.log('khong luu', checkItem.title);
+  }
 }

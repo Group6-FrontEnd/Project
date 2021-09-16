@@ -51,10 +51,10 @@
         <div class="buttons">
             <div [style.width]="view==='Card' ? '40%' : '20%' " class="buttons-border ">
                 <a class="button " matTooltip="Đánh dấu/Lưu" matTooltipPosition="above" style="cursor: pointer;" (click)="save(item)">
-                    <mat-icon [style.color]="item.description === 'saved' ? 'red !important' : 'black !important'">turned_in_not</mat-icon>
+                    <mat-icon [style.color]="item.description.includes('saved') ? 'red !important' : 'black !important'">turned_in_not</mat-icon>
                 </a>
-                <a class="button " matTooltip="Đã đọc" matTooltipPosition="above" style="cursor: pointer;">
-                    <mat-icon [style.color]="item.description === 'read' ? 'green !important' : 'black !important'">done</mat-icon>
+                <a class="button " matTooltip="Đã đọc" matTooltipPosition="above" style="cursor: pointer;" (click)="read(item)">
+                    <mat-icon [style.color]="item.description.includes('read') ? 'lightgreen !important' : 'black !important'">done</mat-icon>
                 </a>
                 <a class="button " (click)="clear(item)" matTooltip="Xóa" matTooltipPosition="above" style="cursor: pointer;">
                     <mat-icon>clear</mat-icon>

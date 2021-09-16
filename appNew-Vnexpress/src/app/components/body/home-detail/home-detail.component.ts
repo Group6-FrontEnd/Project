@@ -13,7 +13,7 @@ import { SavedNewsService } from 'src/app/services/saved-news/saved-news.service
 export class HomeDetailComponent implements OnInit {
   view = 'Card';
   sortBy = 'Date';
-  link_rss ='';
+  link_rss = '';
   loadNumber = 0;
 
   responseObject: ResponseObject = {
@@ -107,8 +107,8 @@ export class HomeDetailComponent implements OnInit {
     }
 
     this.sort(this.sortBy);
-    this.checkReadNews();
-    this.checkSavedNews();
+    // this.checkReadNews();
+    // this.checkSavedNews();
 
     console.log(this.responseObject.items);
   }
@@ -119,15 +119,15 @@ export class HomeDetailComponent implements OnInit {
     private savedService: SavedNewsService
   ) {
     this.loadRss();
-  
+
   }
 
- 
-  
+
+
   ngOnInit(): void {
-   this.getJson();
+    this.getJson();
   }
- 
+
   loadRss() {
     const navigation = this.router.getCurrentNavigation();
 
@@ -168,22 +168,27 @@ export class HomeDetailComponent implements OnInit {
     let indexData = this.responseObjectData.items.indexOf(id);
 
     if (index != -1) {
-      if (id.description !== 'read') {
-        this.responseObject.items[index].description = 'read';
-        this.responseObjectData.items[indexData].description = 'read';
+      if (id.description.includes('read')) {
+        this.historyService.removeRss(id);
+        this.responseObject.items[index].description.replace("read", "");
+        this.responseObjectData.items[indexData].description.replace("read", "");
+      } else {
+        this.responseObject.items[index].description += ' read';
+        this.responseObjectData.items[indexData].description += ' read';
         this.historyService.getRss(id);
-      } 
+      }
     }
   }
+
   checkReadNews() {
     this.responseObject.items.forEach(item => {
       if (this.historyService.check(item)) {
-        item.description = 'read';
+        item.description += 'read';
       }
     })
     this.responseObjectData.items.forEach(item => {
       if (this.historyService.check(item)) {
-        item.description = 'read';
+        item.description += 'read';
       }
     })
   }
@@ -193,14 +198,14 @@ export class HomeDetailComponent implements OnInit {
     let indexData = this.responseObjectData.items.indexOf(id);
 
     if (index != -1) {
-      if (id.description !== 'saved') {
-        this.responseObject.items[index].description = 'saved';
-        this.responseObjectData.items[indexData].description = 'saved';
-        this.savedService.getRss(id);
-      } else {
+      if (id.description.includes('saved')) {
         this.savedService.removeRss(id);
-        this.responseObject.items[index].description = '';
-        this.responseObjectData.items[indexData].description = '';
+        this.responseObject.items[index].description.replace("saved", "");
+        this.responseObjectData.items[indexData].description.replace("saved", "");
+      } else {
+        this.responseObject.items[index].description += ' saved';
+        this.responseObjectData.items[indexData].description += ' saved';
+        this.savedService.getRss(id);
       }
     }
   }
@@ -208,12 +213,12 @@ export class HomeDetailComponent implements OnInit {
   checkSavedNews() {
     this.responseObject.items.forEach(item => {
       if (this.savedService.check(item)) {
-        item.description = 'saved';
+        item.description += 'saved';
       }
     })
     this.responseObjectData.items.forEach(item => {
       if (this.savedService.check(item)) {
-        item.description = 'saved';
+        item.description += 'saved';
       }
     })
   }

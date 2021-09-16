@@ -1,4 +1,4 @@
-import { FormGroup, FormBuilder, Validators, Form } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/services/account/account.service';
 import { Account } from 'src/app/models/account';
@@ -9,16 +9,15 @@ import { Account } from 'src/app/models/account';
   styleUrls: ['./login-sign.component.scss'],
 })
 export class LoginSignComponent implements OnInit {
-  
   flag: boolean = true;
   passwordType: string = 'password';
   passwordShown: boolean = false;
 
   public accounts: Account[] = [
-  {id: '1', name: 'van_truong', email: 'truong@gmail.com', password: '123',image:'https://i.pinimg.com/236x/88/17/e2/8817e2e498c18da5942df9fdba279e04.jpg'},
-  {id: '2', name: 'Ly Na', email: 'na@gmail.com', password: '123',image:'https://i.pinimg.com/236x/88/17/e2/8817e2e498c18da5942df9fdba279e04.jpg'},
-  {id: '3', name: 'tan_phat', email: 'phat@gmail.com', password: '123',image:'https://i.pinimg.com/236x/88/17/e2/8817e2e498c18da5942df9fdba279e04.jpg'}];
-  public account: Account[]=[];
+    { id: '1', name: 'van_truong', email: 'truong@gmail.com', password: '123', image: 'https://i.pinimg.com/236x/88/17/e2/8817e2e498c18da5942df9fdba279e04.jpg' },
+    { id: '2', name: 'Ly Na', email: 'na@gmail.com', password: '123', image: 'https://i.pinimg.com/236x/88/17/e2/8817e2e498c18da5942df9fdba279e04.jpg' },
+    { id: '3', name: 'tan_phat', email: 'phat@gmail.com', password: '123', image: 'https://i.pinimg.com/236x/88/17/e2/8817e2e498c18da5942df9fdba279e04.jpg' }];
+  public account: Account[] = [];
   successMessage: string = ""
   loginForm!: FormGroup;
   regForm!: FormGroup;
@@ -52,7 +51,6 @@ export class LoginSignComponent implements OnInit {
       this.passwordShown = true;
       this.passwordType = '!password';
     }
-
   }
   private loadData() {
     this.accountService.currentAccount.subscribe((data) => {

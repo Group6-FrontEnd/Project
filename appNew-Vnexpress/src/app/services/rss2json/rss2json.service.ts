@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import { catchError, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { ResponseObject } from '../../models/responseObject';
 @Injectable({
@@ -9,8 +9,6 @@ import { ResponseObject } from '../../models/responseObject';
 export class Rss2jsonService {
   private apiUrl = 'https://api.rss2json.com/v1/api.json';
   private apiKey = 'gxhkoesz1pmfqon2jcannfe2ledfn0d8cv8ndqwd';
-  private orderBy = '';
-  private orderDir = '';
   private count = 27;
 
 

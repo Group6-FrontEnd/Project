@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Account } from 'src/app/models/account';
 import { AccountService } from 'src/app/services/account/account.service';
 
-
-import { FormControl, FormGroupDirective, NgForm, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(control: FormControl | null): boolean {
     const invalidCtrl = !!(control && control.invalid);
     const invalidParent = !!(control && control.parent && control.parent.invalid && control.parent.dirty);
 
@@ -23,9 +22,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class ChangePassComponent implements OnInit {
   hide = true;
   public account: Account[] = [];
-  passwordOld= new FormControl('', [Validators.required]);
+  passwordOld = new FormControl('', [Validators.required]);
   myForm!: FormGroup;
-  visible:boolean = false;
+  visible: boolean = false;
 
   matcher = new MyErrorStateMatcher();
   constructor(private accountService: AccountService,
@@ -48,5 +47,5 @@ export class ChangePassComponent implements OnInit {
 
     return passwordNew === confirmNewPassword ? null : { notSame: true }
   }
- 
+
 }

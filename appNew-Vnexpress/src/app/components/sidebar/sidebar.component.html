@@ -1,5 +1,5 @@
 <div class="sidebar_menu" [@onSideNavChange]="sidebarState">
-    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="tree">
         <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle class="list">
             <mat-nav-list class="menu-sublist" (click)="linkUrl(node?.link)">
                 <button mat-list-item class="button">
@@ -26,7 +26,7 @@
             </mat-nav-list>
             <div *ngIf="this.sidebarState === 'open'; then thenOpen else elseOpen"></div>
             <ng-template #thenOpen>
-                <div [class.example-tree-invisible]="!treeControl.isExpanded(node) " role="group ">
+                <div [class.tree-invisible]="!treeControl.isExpanded(node) " role="group ">
                     <ng-container matTreeNodeOutlet></ng-container>
                 </div>
             </ng-template>

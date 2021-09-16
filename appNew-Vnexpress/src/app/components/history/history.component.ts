@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ResponseObject } from 'src/app/models/responseObject';
 import { HistoryService } from 'src/app/services/history/history.service';
 
 @Component({

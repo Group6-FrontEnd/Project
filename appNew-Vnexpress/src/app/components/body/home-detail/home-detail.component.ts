@@ -121,8 +121,6 @@ export class HomeDetailComponent implements OnInit {
   ) {
   }
 
-
-
   ngOnInit(): void {
     if (this.link_rss == undefined || this.link_rss == '') {
       const url:string = this.router.url;
@@ -131,7 +129,6 @@ export class HomeDetailComponent implements OnInit {
     this.getJson();
     console.log("page-detail init")
   }
-
 
   loadMore(): void {
     this.showMore(this.responseObject.items.length, 9 + 9 * this.loadNumber);

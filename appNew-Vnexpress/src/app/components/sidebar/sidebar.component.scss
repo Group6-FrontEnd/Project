@@ -40,19 +40,19 @@
     height: 4px;
 }
 
-.example-tree-invisible {
+.tree-invisible {
     display: none;
 }
 
-.example-tree {
+.tree {
     background-color: transparent;
 }
 
-.example-tree .mat-nested-tree-node div[role="group"] {
+.tree .mat-nested-tree-node div[role="group"] {
     padding-left: 44px;
 }
 
-.example-tree div[role="group"]>.mat-tree-node {
+.tree div[role="group"]>.mat-tree-node {
     padding-left: 44px;
 }
 
@@ -69,8 +69,7 @@
 }
 
 a.active,
-.mat-list-item:focus {
+.mat-list-item:focus-within {
     font-weight: bold;
-    font-size: 1.20em;
     color: brown;
 }

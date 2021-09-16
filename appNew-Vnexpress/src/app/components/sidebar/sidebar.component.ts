@@ -27,24 +27,24 @@ export class SidebarComponent implements OnInit {
   navigation?: NavigationExtras;
   public menus: Menu[] = [
     {
-      name: 'Trang chủ', link: 'home-page', icon: 'home', url: '',
+      name: 'Trang chủ', link: 'home-page', icon: 'home',
       children: [
-        { name: 'Thời sự', link: 'thoi-su.rss', url: 'https://vnexpress.net/rss/thoi-su.rss' },
-        { name: 'Khoa học', link: 'khoa-hoc.rss', url: 'https://vnexpress.net/rss/khoa-hoc.rss' },
-        { name: 'Kinh doanh', link: 'kinh-doanh.rss', url: 'https://vnexpress.net/rss/kinh-doanh.rss' },
-        { name: 'Giải trí', link: 'giai-tri.rss', url: 'https://vnexpress.net/rss/giai-tri.rss' },
-        { name: 'Thể thao', link: 'the-thao.rss', url: 'https://vnexpress.net/rss/the-thao.rss' },
-        { name: 'Pháp luật', link: 'phap-luat.rss', url: 'https://vnexpress.net/rss/phap-luat.rss' },
-        { name: 'Giáo dục', link: 'giao-duc.rss', url: 'https://vnexpress.net/rss/giao-duc.rss' },
-        { name: 'Sức khỏe', link: 'suc-khoe.rss', url: 'https://vnexpress.net/rss/suc-khoe.rss' },
-        { name: 'Đời sống', link: 'gia-dinh.rss', url: 'https://vnexpress.net/rss/gia-dinh.rss' },
-        { name: 'Du lịch', link: 'du-lich.rss', url: 'https://vnexpress.net/rss/du-lich.rss' },
-        { name: 'Thế giới', link: 'the-gioi.rss', url: 'https://vnexpress.net/rss/the-gioi.rss' },
-        { name: 'Số hóa', link: 'so-hoa.rss', url: 'https://vnexpress.net/rss/so-hoa.rss' },
-        { name: 'Xe', link: 'oto-xe-may.rss', url: 'https://vnexpress.net/rss/oto-xe-may.rss' },
-        { name: 'Cộng đồng', link: 'y-kien.rss', url: 'https://vnexpress.net/rss/y-kien.rss' },
-        { name: 'Tâm sự', link: 'tam-su.rss', url: 'https://vnexpress.net/rss/tam-su.rss' },
-        { name: 'Cười', link: 'cuoi.rss', url: 'https://vnexpress.net/rss/cuoi.rss' },
+        { name: 'Thời sự', link: 'thoi-su.rss' },
+        { name: 'Khoa học', link: 'khoa-hoc.rss' },
+        { name: 'Kinh doanh', link: 'kinh-doanh.rss' },
+        { name: 'Giải trí', link: 'giai-tri.rss' },
+        { name: 'Thể thao', link: 'the-thao.rss' },
+        { name: 'Pháp luật', link: 'phap-luat.rss' },
+        { name: 'Giáo dục', link: 'giao-duc.rss' },
+        { name: 'Sức khỏe', link: 'suc-khoe.rss' },
+        { name: 'Đời sống', link: 'gia-dinh.rss' },
+        { name: 'Du lịch', link: 'du-lich.rss' },
+        { name: 'Thế giới', link: 'the-gioi.rss' },
+        { name: 'Số hóa', link: 'so-hoa.rss' },
+        { name: 'Xe', link: 'oto-xe-may.rss' },
+        { name: 'Cộng đồng', link: 'y-kien.rss' },
+        { name: 'Tâm sự', link: 'tam-su.rss' },
+        { name: 'Cười', link: 'cuoi.rss' },
       ]
     },
     {
@@ -81,10 +81,10 @@ export class SidebarComponent implements OnInit {
       });
   }
   hasChild = (_: number, node: Menu) => !!node.children && node.children.length > 0;
-  linkUrl(name: any) {   
+  linkUrl(name: any) {
     if (name) {
-      this.navigation = { state: name}
-      this.router.navigate(['home-detail/' + name], {relativeTo: this.route});
+      this.navigation = { state: name }
+      this.router.navigate(['home-detail/' + name], { relativeTo: this.route });
       console.log('navigation', this.navigation);
     }
   }

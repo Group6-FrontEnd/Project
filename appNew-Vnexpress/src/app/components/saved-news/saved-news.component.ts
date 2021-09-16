@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ResponseObject } from 'src/app/models/responseObject';
 import { SavedNewsService } from 'src/app/services/saved-news/saved-news.service';
 
 @Component({

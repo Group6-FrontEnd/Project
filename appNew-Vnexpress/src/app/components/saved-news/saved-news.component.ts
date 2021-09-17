@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ResponseObject } from 'src/app/models/responseObject';
 import { HistoryService } from 'src/app/services/history/history.service';
 import { SavedNewsService } from 'src/app/services/saved-news/saved-news.service';
 
@@ -9,8 +8,6 @@ import { SavedNewsService } from 'src/app/services/saved-news/saved-news.service
   styleUrls: ['./saved-news.component.scss']
 })
 export class SavedNewsComponent implements OnInit {
-  countHis = 0;
-  count = 0;
   view = 'Card';
   sortBy = 'Date';
   color: string = 'black';
@@ -38,11 +35,11 @@ export class SavedNewsComponent implements OnInit {
     this.savedService.currentSaved.subscribe(name => {
       this.saves = name;
     });
-    console.log('Luuuuuuu: ' + this.saves);
+    console.log('Lưu: ' + this.saves);
   }
 
   clear(id: any) {
-    if(confirm("bạn có chắc chắn muốn xóa không")){
+    if(confirm("Bạn có chắc chắn muốn xóa không")){
     console.log('Xóa: ' + id.title);
     const index: number = this.saves.indexOf(id);
     if (index !== -1) {
@@ -61,12 +58,10 @@ export class SavedNewsComponent implements OnInit {
 
   read(id: any) {
     console.log('Đọc: ' + id.title);
-    this.count++;
     let index = this.saves.indexOf(id);
-    this.countHis = this.count + this.savedService.count;
     if (index != -1) {
       if (id.description.includes('read')) {      
-        this.historyService.histories[0].id = this.countHis.toString();
+        console.log('Đã Đọc: ' + id.title);
       } else {
         this.saves[index].description += ' read';
         this.historyService.getRss(id);

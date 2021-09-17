@@ -5,7 +5,6 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SavedNewsService {
-  count = 0;
   public responseObjectSave =
     [{
       title: '',

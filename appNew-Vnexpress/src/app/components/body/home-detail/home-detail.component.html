@@ -53,8 +53,7 @@
                 <span *ngIf="account.length===0; then thenLogin else esleLogin "></span>
                 <ng-template #thenLogin>
                     <a class="button " matTooltip="Đánh dấu/Lưu" matTooltipPosition="above" style="cursor: pointer;" [routerLink]="['/login']" [routerLinkActive]="'active-link'">
-                        <mat-icon [style.color]="item.description.includes('saved') ? 'red !important' : 'black !important'">
-                            turned_in_not</mat-icon>
+                        <mat-icon>turned_in_not</mat-icon>
                     </a>
                 </ng-template>
                 <ng-template #esleLogin>

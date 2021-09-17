@@ -8,17 +8,9 @@
         <div class="content">
             <owl-carousel-o [options]="customOptions" *ngIf='responseObjectLatestNews.status === "ok"'>
                 <ng-template carouselSlide *ngFor='let item of responseObjectLatestNews.items'>
-                    <div class="buttons">
-                        <div  class="buttons-border ">
-                            <a class="button" matTooltip="Đã đọc" matTooltipPosition="above" style="cursor: pointer;" (click)="read(item)">
-                                <mat-icon [style.color]="item.description.includes('read') ? 'lightgreen !important' : 'black !important'">
-                                    </mat-icon>
-                            </a>
-                        </div>
-                    </div>
                     <div class="card">
                         <div class="content ">
-                            <a href="{{item.link}}" target="_blank">
+                            <a href="{{item.link}}" target="_blank" (click)="read(item)">
                                 <img class="card-img-top " src="{{item.thumbnail}} " alt="Card image">
                             </a>
                             <div class="card-body ">
@@ -41,18 +33,9 @@
         <div class="content">
             <owl-carousel-o [options]="customOptions" *ngIf='responseObject.status === "ok"'>
                 <ng-template carouselSlide *ngFor='let item of responseObject.items'>
-
-                    <div class="buttons">
-                        <div class="buttons-border ">
-                            <a class="button" matTooltip="Đã đọc" matTooltipPosition="above" style="cursor: pointer;" (click)="read(item)">
-                                <mat-icon [style.color]="item.description.includes('read') ? 'lightgreen !important' : 'black !important'">
-                                    </mat-icon>
-                            </a>
-                        </div>
-                    </div>
                     <div class="card">
                         <div class="content ">
-                            <a href="{{item.link}}" target="_blank">
+                            <a href="{{item.link}}" target="_blank" (click)="read(item)">
                                 <img class="card-img-top " src="{{item.thumbnail}} " alt="Card image">
                             </a>
                             <div class="card-body ">
@@ -62,7 +45,6 @@
                             </div>
                         </div>
                     </div>
-                    
                 </ng-template>
             </owl-carousel-o>
         </div>

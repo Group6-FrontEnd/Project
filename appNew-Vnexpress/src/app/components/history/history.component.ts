@@ -13,7 +13,6 @@ export class HistoryComponent implements OnInit {
   view = 'Card';
   sortBy = 'Date';
   histories = [{
-    id:'',
     title: '',
     pubDate: '',
     link: '',
@@ -100,7 +99,7 @@ export class HistoryComponent implements OnInit {
     }
   }
   clear(id: any) {
-    if(confirm("bạn có chắc chắn muốn xóa không")){
+    if(confirm("Bạn có chắc chắn muốn xóa không")){
       console.log('Xóa: ' + id.title);
       const index: number = this.histories.indexOf(id);
       const indexData: number = this.responseObjectData.items.indexOf(id);

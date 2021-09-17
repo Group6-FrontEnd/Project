@@ -13,12 +13,11 @@ import { SavedNewsService } from 'src/app/services/saved-news/saved-news.service
   styleUrls: ['./home-detail.component.scss']
 })
 export class HomeDetailComponent implements OnInit {
-  public account: Account[]=[];
+  public account: Account[] = [];
   view = 'Card';
   sortBy = 'Date';
   link_rss = '';
   loadNumber = 0;
-  countRead = 1;
   responseObject: ResponseObject = {
     status: '',
     feed: {
@@ -168,12 +167,9 @@ export class HomeDetailComponent implements OnInit {
     let indexData = this.responseObjectData.items.indexOf(id);
 
     if (index != -1) {
-      this.countRead++;
-
       if (id.description.includes('read')) {
-        this.historyService.histories[0].id = this.countRead.toString();
-        this.savedService.count= this.countRead;
-      } else {     
+        console.log('Đã Đọc: ' + id.title);
+      } else {
         this.responseObject.items[index].description += ' read';
         this.responseObjectData.items[indexData].description += ' read';
         this.historyService.getRss(id);
@@ -223,10 +219,10 @@ export class HomeDetailComponent implements OnInit {
       }
     })
   }
-  load(){
+  load() {
     this.accountService.currentAccount.subscribe(name => {
       this.account = name;
-      console.log('account: ',this.account);
+      console.log('account: ', this.account);
     });
   }
 }

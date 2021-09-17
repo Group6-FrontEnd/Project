@@ -90,7 +90,7 @@ body {
 }
 
 .body .card .buttons .buttons-border {
-  width: 40%;
+  width: 18%;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 8px;
   margin: 5px;
@@ -109,8 +109,10 @@ body {
   text-decoration: none;
   color: black;
   height: 30px;
-  width: 30px;
   padding: 5px;
+}
+.body .card .buttons .buttons-border .button span{
+  font-size: 10px;
 }
 
 .body .card a img.card-img-top {

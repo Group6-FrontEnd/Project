@@ -42,10 +42,12 @@ export class SavedNewsComponent implements OnInit {
   }
 
   clear(id: any) {
+    if(confirm("bạn có chắc chắn muốn xóa không")){
     console.log('Xóa: ' + id.title);
     const index: number = this.saves.indexOf(id);
     if (index !== -1) {
       this.saves.splice(index, 1);
+    }
     }
   }
 

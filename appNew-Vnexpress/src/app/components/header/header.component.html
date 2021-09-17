@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="nav-height header">
+<mat-toolbar class="nav-height header">
     <mat-toolbar-row>
         <button mat-icon-button>
             <mat-icon (click)="toggleSideNav()">menu</mat-icon>
@@ -58,31 +58,31 @@
             </ng-template>
         </div>
     </mat-toolbar-row>
-</mat-toolbar>
-<!-- -------------------------------------------------- -->
-<mat-menu #menu="matMenu">
-    <mat-nav-list class="menu-sublist">
-        <a mat-list-item [routerLink]="['/edit-info']" [routerLinkActive]="'active-link'">
-            <mat-icon>edit</mat-icon>&nbsp;&nbsp;
-            <span>Chỉnh sửa thông tin</span>
-        </a>
-    </mat-nav-list>
-    <mat-nav-list class="menu-sublist">
-        <a mat-list-item [routerLink]="['/changePass']" [routerLinkActive]="'active-link'">
-            <mat-icon>https</mat-icon>&nbsp;&nbsp;
-            <span>Đổi mật khẩu</span>
-        </a>
-    </mat-nav-list>
-    <mat-nav-list class="menu-sublist">
-        <a mat-list-item [routerLink]="['/feedback']" [routerLinkActive]="'active-link'">
-            <mat-icon>feedback</mat-icon>&nbsp;&nbsp;
-            <span>Đánh giá và phản hồi</span>
-        </a>
-    </mat-nav-list>
-    <mat-nav-list class="menu-sublist">
-        <a mat-list-item href="">
-            <mat-icon>exit_to_app</mat-icon>&nbsp;&nbsp;
-            <span>Đăng xuất</span>
-        </a>
-    </mat-nav-list>
-</mat-menu>
+    </mat-toolbar>
+    <!-- -------------------------------------------------- -->
+    <mat-menu #menu="matMenu">
+        <mat-nav-list class="menu-sublist">
+            <a mat-list-item [routerLink]="['/edit-info']" [routerLinkActive]="'active-link'">
+                <mat-icon>edit</mat-icon>&nbsp;&nbsp;
+                <span>Chỉnh sửa thông tin</span>
+            </a>
+        </mat-nav-list>
+        <mat-nav-list class="menu-sublist">
+            <a mat-list-item [routerLink]="['/changePass']" [routerLinkActive]="'active-link'">
+                <mat-icon>https</mat-icon>&nbsp;&nbsp;
+                <span>Đổi mật khẩu</span>
+            </a>
+        </mat-nav-list>
+        <mat-nav-list class="menu-sublist">
+            <a mat-list-item [routerLink]="['/feedback']" [routerLinkActive]="'active-link'">
+                <mat-icon>feedback</mat-icon>&nbsp;&nbsp;
+                <span>Đánh giá và phản hồi</span>
+            </a>
+        </mat-nav-list>
+        <mat-nav-list class="menu-sublist">
+            <a mat-list-item href="">
+                <mat-icon>exit_to_app</mat-icon>&nbsp;&nbsp;
+                <span>Đăng xuất</span>
+            </a>
+        </mat-nav-list>
+    </mat-menu>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Account } from 'src/app/models/account';
 import { ResponseObject } from 'src/app/models/responseObject';
+import { AccountService } from 'src/app/services/account/account.service';
 import { HistoryService } from 'src/app/services/history/history.service';
 import { Rss2jsonService } from 'src/app/services/rss2json/rss2json.service';
 import { SavedNewsService } from 'src/app/services/saved-news/saved-news.service';
@@ -11,6 +13,7 @@ import { SavedNewsService } from 'src/app/services/saved-news/saved-news.service
   styleUrls: ['./home-detail.component.scss']
 })
 export class HomeDetailComponent implements OnInit {
+  public account: Account[]=[];
   view = 'Card';
   sortBy = 'Date';
   link_rss = '';
@@ -117,7 +120,8 @@ export class HomeDetailComponent implements OnInit {
   constructor(private rss2jsonService: Rss2jsonService,
     private router: Router,
     private historyService: HistoryService,
-    private savedService: SavedNewsService
+    private savedService: SavedNewsService,
+    private accountService: AccountService
   ) {
   }
 
@@ -127,6 +131,7 @@ export class HomeDetailComponent implements OnInit {
       this.link_rss = 'https://vnexpress.net/rss' + url.substring(url.lastIndexOf('/'));
     }
     this.getJson();
+    this.load();
     console.log("page-detail init")
   }
 
@@ -217,5 +222,11 @@ export class HomeDetailComponent implements OnInit {
         item.description += 'saved';
       }
     })
+  }
+  load(){
+    this.accountService.currentAccount.subscribe(name => {
+      this.account = name;
+      console.log('account: ',this.account);
+    });
   }
 }

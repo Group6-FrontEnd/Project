@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class HistoryService {
   public histories =
     [{
+      id:'',
       title: '',
       pubDate: '',
       link: '',

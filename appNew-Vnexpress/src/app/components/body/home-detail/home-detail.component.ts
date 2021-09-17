@@ -15,7 +15,7 @@ export class HomeDetailComponent implements OnInit {
   sortBy = 'Date';
   link_rss = '';
   loadNumber = 0;
-
+  countRead = 1;
   responseObject: ResponseObject = {
     status: '',
     feed: {
@@ -123,7 +123,7 @@ export class HomeDetailComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.link_rss == undefined || this.link_rss == '') {
-      const url:string = this.router.url;
+      const url: string = this.router.url;
       this.link_rss = 'https://vnexpress.net/rss' + url.substring(url.lastIndexOf('/'));
     }
     this.getJson();
@@ -163,11 +163,12 @@ export class HomeDetailComponent implements OnInit {
     let indexData = this.responseObjectData.items.indexOf(id);
 
     if (index != -1) {
+      this.countRead++;
+
       if (id.description.includes('read')) {
-        this.historyService.removeRss(id);
-        this.responseObject.items[index].description.replace("read", "");
-        this.responseObjectData.items[indexData].description.replace("read", "");
-      } else {
+        this.historyService.histories[0].id = this.countRead.toString();
+        this.savedService.count= this.countRead;
+      } else {     
         this.responseObject.items[index].description += ' read';
         this.responseObjectData.items[indexData].description += ' read';
         this.historyService.getRss(id);
@@ -217,8 +218,4 @@ export class HomeDetailComponent implements OnInit {
       }
     })
   }
-
-
-
-  
 }

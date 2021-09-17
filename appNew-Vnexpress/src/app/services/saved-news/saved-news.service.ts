@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SavedNewsService {
-
+  count = 0;
   public responseObjectSave =
     [{
       title: '',
@@ -24,7 +24,7 @@ export class SavedNewsService {
 
   private savedSource = new BehaviorSubject(this.responseObjectSave);
   currentSaved = this.savedSource.asObservable();
-  
+
   constructor() {
     this.responseObjectSave.splice(0, 1);
   }

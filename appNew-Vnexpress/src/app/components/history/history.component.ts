@@ -10,6 +10,7 @@ export class HistoryComponent implements OnInit {
   view = 'Card';
   sortBy = 'Date';
   histories = [{
+    id:'',
     title: '',
     pubDate: '',
     link: '',

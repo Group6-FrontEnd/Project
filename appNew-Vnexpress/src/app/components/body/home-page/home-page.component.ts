@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Account } from 'src/app/models/account';
 import { ResponseObject } from 'src/app/models/responseObject';
+import { AccountService } from 'src/app/services/account/account.service';
 import { Rss2jsonService } from 'src/app/services/rss2json/rss2json.service';
 
 @Component({
@@ -38,7 +40,7 @@ export class HomePageComponent implements OnInit {
     nav: false
   }
   
-  link_url = ['https://vnexpress.net/rss/tin-moi-nhat.rss', 'https://vnexpress.net/rss/khoa-hoc.rss']
+  link_url = ['https://vnexpress.net/rss/tin-moi-nhat.rss', 'https://vnexpress.net/rss/tin-xem-nhieu.rss']
 
   responseObjectLatestNews: ResponseObject = {
     status: '',
@@ -124,4 +126,5 @@ export class HomePageComponent implements OnInit {
     this.getJson(this.link_url[0]);
     this.getJson1(this.link_url[1]);
   }
+
 }

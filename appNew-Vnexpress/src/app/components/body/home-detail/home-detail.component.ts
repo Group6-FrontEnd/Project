@@ -197,8 +197,8 @@ export class HomeDetailComponent implements OnInit {
     if (index != -1) {
       if (id.description.includes('saved')) {
         this.savedService.removeRss(id);
-        this.responseObject.items[index].description.replace("saved", "");
-        this.responseObjectData.items[indexData].description.replace("saved", "");
+        this.responseObject.items[index].description='';
+        this.responseObjectData.items[indexData].description='';
       } else {
         this.responseObject.items[index].description += ' saved';
         this.responseObjectData.items[indexData].description += ' saved';
